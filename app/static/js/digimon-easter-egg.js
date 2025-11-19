@@ -1,8 +1,10 @@
 // =====================================================================
-//  InteliMon Digimon Easter Egg - Konami Code Activation
+//  InteliMon Digivice - Classic Easter Egg (Konami Code)
 // =====================================================================
 
-// Konami Code Sequence: ↑↑↓↓←→←→BA
+console.log('[DIGIVICE] Initializing Easter Egg...');
+
+// ==================== KONAMI CODE DETECTOR ====================
 const KONAMI_CODE = [
     'ArrowUp', 'ArrowUp',
     'ArrowDown', 'ArrowDown',
@@ -11,431 +13,403 @@ const KONAMI_CODE = [
     'KeyB', 'KeyA'
 ];
 
-let konamiIndex = 0;
-let digimonAudio = null;
-let digimonTips = [];
-let currentEnvironmentData = {};
+let konamiProgress = 0;
+let digiviceActive = false;
+let currentTipIndex = 0;
 
-// Dicas do InteliMon sobre o ambiente
+// ==================== INTELIMON TIPS ====================
 const INTELIMON_TIPS = [
     {
-        message: "Olá, parceiro! Eu sou o InteliMon! 🔥",
-        tip: "Estou aqui para te ajudar a monitorar seus serviços de email e infraestrutura!"
+        title: "Monitoramento Proativo! 🔍",
+        message: "Sempre monitore suas métricas ANTES que os problemas aconteçam. Prevenção é melhor que correção!"
     },
     {
-        message: "Dica de Monitoramento! 📊",
-        tip: "Verifique regularmente a taxa de bounce dos seus emails. Uma taxa acima de 5% pode indicar problemas com sua lista de contatos."
+        title: "Taxa de Abertura Ideal! 📧",
+        message: "Uma boa taxa de abertura de emails está entre 15-25%. Acima disso, você está indo muito bem!"
     },
     {
-        message: "Segurança em Primeiro Lugar! 🛡️",
-        tip: "O PMG está bloqueando spam e vírus automaticamente. Mantenha-o sempre atualizado para máxima proteção!"
+        title: "Bounce Rate Crítico! ⚠️",
+        message: "Se sua taxa de bounce passar de 5%, é hora de limpar sua lista de emails!"
     },
     {
-        message: "Otimização de Recursos! ⚡",
-        tip: "Se o uso de CPU ou memória estiver constantemente acima de 80%, considere fazer um upgrade do servidor."
+        title: "CPU sob Controle! 💻",
+        message: "Mantenha o uso de CPU abaixo de 70% para garantir performance estável do servidor."
     },
     {
-        message: "Gestão de Contas! 👥",
-        tip: "Monitore o uso de disco das contas cPanel. Contas próximas do limite podem causar falhas no envio de emails."
+        title: "Memória Otimizada! 🧠",
+        message: "Uso de memória acima de 80% pode causar lentidão. Considere upgrade ou otimização!"
     },
     {
-        message: "Performance de Email! 📧",
-        tip: "Uma boa taxa de abertura está entre 15-25%. Se estiver abaixo disso, revise seus assuntos e horários de envio."
+        title: "Backup Regular! 💾",
+        message: "Faça backup de suas configurações e dados pelo menos uma vez por semana!"
     },
     {
-        message: "Manutenção Preventiva! 🔧",
-        tip: "Limpe regularmente a fila do PMG e verifique logs de erro para identificar problemas antes que afetem seus usuários."
+        title: "Segurança em Primeiro Lugar! 🛡️",
+        message: "O PMG está bloqueando spam e vírus automaticamente. Mantenha-o sempre atualizado!"
     },
     {
-        message: "Backup é Essencial! 💾",
-        tip: "Certifique-se de ter backups automáticos configurados para todas as contas cPanel. A prevenção é sempre melhor!"
+        title: "Logs são Importantes! 📝",
+        message: "Revise seus logs regularmente para identificar padrões e prevenir problemas futuros."
     },
     {
-        message: "Monitoramento Proativo! 🎯",
-        tip: "Configure alertas para quando métricas críticas ultrapassarem limites. Não espere os problemas acontecerem!"
+        title: "Domínios Organizados! 🌐",
+        message: "Mantenha seus domínios bem organizados no cPanel para facilitar o gerenciamento."
     },
     {
-        message: "Qualidade dos Dados! ✨",
-        tip: "Mantenha suas listas de email limpas. Remova bounces permanentes e contatos inativos regularmente."
+        title: "Inodes no Limite! 📊",
+        message: "Mesmo com espaço em disco, muitos arquivos pequenos podem esgotar os inodes!"
     },
     {
-        message: "Reputação de IP! 🌐",
-        tip: "Monitore a reputação do seu IP de envio. Um IP com má reputação pode fazer seus emails irem direto para spam."
+        title: "Uptime Excelente! ⏰",
+        message: "Quanto maior o uptime, mais confiável é seu servidor. Busque sempre 99.9%!"
     },
     {
-        message: "Autenticação de Email! 🔐",
-        tip: "Certifique-se de ter SPF, DKIM e DMARC configurados corretamente para todos os domínios de envio."
+        title: "Fila de Emails! 📬",
+        message: "Fila de emails muito grande pode indicar problemas de entrega. Investigue!"
     },
     {
-        message: "Análise de Tendências! 📈",
-        tip: "Compare as métricas de hoje com as da semana passada. Identificar tendências ajuda a prever problemas."
+        title: "Autenticação Forte! 🔐",
+        message: "Use tokens de API ao invés de senhas sempre que possível para maior segurança."
     },
     {
-        message: "Gestão de Quarentena! 🗂️",
-        tip: "Revise a quarentena do PMG periodicamente. Às vezes emails legítimos podem ser retidos por engano."
+        title: "Métricas em Tempo Real! ⚡",
+        message: "Ative o auto-refresh para monitorar suas métricas em tempo real!"
     },
     {
-        message: "Capacidade de Envio! 🚀",
-        tip: "Conheça os limites de envio dos seus provedores (Postmark, Mailgun) e planeje suas campanhas de acordo."
+        title: "Manutenção Preventiva! 🔧",
+        message: "Agende manutenções regulares para evitar surpresas desagradáveis no futuro."
     }
 ];
 
-// Mensagens de análise do sistema
-const ANALYSIS_MESSAGES = {
-    excellent: [
-        "Sistema operando perfeitamente! Todos os indicadores estão no verde! 🟢",
-        "Excelente trabalho, parceiro! O ambiente está otimizado e saudável! 💚",
-        "Tudo funcionando como deveria! Continue assim! ⭐"
-    ],
-    good: [
-        "Sistema está bem, mas há espaço para melhorias. Fique atento! 🟡",
-        "Boa performance geral! Alguns pontos merecem atenção. 👀",
-        "Está indo bem! Vamos manter esse nível! 💪"
-    ],
-    warning: [
-        "Atenção! Detectei alguns problemas que precisam de atenção. 🟠",
-        "Cuidado, parceiro! Alguns serviços estão com performance abaixo do ideal. ⚠️",
-        "Hora de agir! Identifiquei pontos críticos que precisam de correção. 🔴"
-    ],
-    critical: [
-        "ALERTA CRÍTICO! O sistema precisa de atenção imediata! 🚨",
-        "Situação crítica detectada! Aja rapidamente para evitar problemas maiores! ⛔",
-        "URGENTE! Múltiplos serviços com problemas sérios! 🆘"
-    ]
-};
-
-// Initialize Konami Code listener
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('[DIGIMON] Easter Egg inicializado. Digite o Konami Code: ↑↑↓↓←→←→BA');
+// ==================== KONAMI CODE LISTENER ====================
+document.addEventListener('keydown', (e) => {
+    if (digiviceActive) return;
     
-    // Konami Code detection
-    document.addEventListener('keydown', handleKonamiCode);
-    
-    // Initialize audio
-    digimonAudio = document.getElementById('digimon-audio');
-    
-    // Setup sidebar toggle
-    setupSidebarControls();
-});
-
-function handleKonamiCode(event) {
-    const key = event.code;
-    
-    if (key === KONAMI_CODE[konamiIndex]) {
-        konamiIndex++;
-        console.log(`[KONAMI] Progress: ${konamiIndex}/${KONAMI_CODE.length}`);
+    if (e.code === KONAMI_CODE[konamiProgress]) {
+        konamiProgress++;
+        console.log(`[KONAMI] Progress: ${konamiProgress}/${KONAMI_CODE.length}`);
         
-        if (konamiIndex === KONAMI_CODE.length) {
-            console.log('[KONAMI] CODE ACTIVATED! 🎮');
+        if (konamiProgress === KONAMI_CODE.length) {
+            console.log('[KONAMI] CODE COMPLETE! Activating Digivice...');
             activateDigivice();
-            konamiIndex = 0;
+            konamiProgress = 0;
         }
     } else {
-        konamiIndex = 0;
+        if (konamiProgress > 0) {
+            console.log('[KONAMI] Reset progress');
+        }
+        konamiProgress = 0;
     }
-}
+});
 
+// ==================== DIGIVICE ACTIVATION ====================
 function activateDigivice() {
-    console.log('[DIGIMON] Activating Digivice...');
+    if (digiviceActive) return;
     
-    // Play Digimon theme
-    if (digimonAudio) {
-        digimonAudio.currentTime = 0;
-        digimonAudio.play().catch(err => {
-            console.warn('[DIGIMON] Audio playback failed:', err);
-        });
-    }
+    console.log('[DIGIVICE] Activating...');
+    digiviceActive = true;
+    
+    // Play sound if available
+    playDigiviceSound();
+    
+    // Create and show Digivice
+    createDigivice();
     
     // Show modal
     const modal = document.getElementById('digivice-modal');
-    if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    }
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+// ==================== CREATE DIGIVICE ====================
+function createDigivice() {
+    const container = document.getElementById('digivice-container');
     
-    // Load initial tip
-    showRandomTip();
+    const tip = INTELIMON_TIPS[currentTipIndex];
+    
+    container.innerHTML = `
+        <div class="digivice">
+            <div class="digivice-close" onclick="closeDigivice()">×</div>
+            
+            <div class="digivice-body">
+                <!-- Screen Container -->
+                <div class="digivice-screen-container">
+                    <div class="digivice-screen-border"></div>
+                    <div class="digivice-screen">
+                        <div class="digivice-content">
+                            <div>
+                                <div class="digivice-text digivice-title">${tip.title}</div>
+                                <div class="digivice-mascot">🔥</div>
+                                <div class="digivice-text digivice-message">${tip.message}</div>
+                            </div>
+                            
+                            <div class="digivice-stats">
+                                <div class="digivice-stat">
+                                    <span class="digivice-stat-label digivice-text">SERVIÇOS</span>
+                                    <span class="digivice-stat-value digivice-text" id="digivice-services">-</span>
+                                </div>
+                                <div class="digivice-stat">
+                                    <span class="digivice-stat-label digivice-text">UPTIME</span>
+                                    <span class="digivice-stat-value digivice-text" id="digivice-uptime">--</span>
+                                </div>
+                                <div class="digivice-stat">
+                                    <span class="digivice-stat-label digivice-text">EMAILS 24H</span>
+                                    <span class="digivice-stat-value digivice-text" id="digivice-emails">0</span>
+                                </div>
+                                <div class="digivice-stat">
+                                    <span class="digivice-stat-label digivice-text">CPU</span>
+                                    <span class="digivice-stat-value digivice-text" id="digivice-cpu">--%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Buttons -->
+                <div class="digivice-buttons">
+                    <button class="digivice-btn digivice-btn-left" onclick="showNewTip()">
+                        <div class="digivice-btn-label">💡 Nova Dica</div>
+                    </button>
+                    <button class="digivice-btn digivice-btn-center" onclick="analyzeSystem()">
+                        <div class="digivice-btn-label">🔍 Analisar</div>
+                    </button>
+                    <button class="digivice-btn digivice-btn-right" onclick="closeDigivice()">
+                        <div class="digivice-btn-label">❌ Fechar</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
     
     // Update stats
-    updateDigimonStats();
-    
-    // Add body animation
-    document.body.classList.add('konami-active');
-    setTimeout(() => {
-        document.body.classList.remove('konami-active');
-    }, 3000);
+    updateDigiviceStats();
 }
 
-function closeDigivice() {
-    const modal = document.getElementById('digivice-modal');
-    if (modal) {
-        modal.classList.remove('flex');
-        modal.classList.add('hidden');
+// ==================== UPDATE DIGIVICE STATS ====================
+function updateDigiviceStats() {
+    // Get data from main state
+    const data = window.state?.data || {};
+    
+    // Services count
+    let activeServices = 0;
+    let totalServices = 5;
+    
+    if (data.postmark?.success) activeServices++;
+    if (data.mailgun?.success) activeServices++;
+    if (data.pmg?.success) activeServices++;
+    if (data.server?.success) activeServices++;
+    if (data.cpanel?.success) activeServices++;
+    
+    document.getElementById('digivice-services').textContent = `${activeServices}/${totalServices}`;
+    
+    // Uptime
+    const uptime = data.server?.uptime || 0;
+    document.getElementById('digivice-uptime').textContent = formatUptimeShort(uptime);
+    
+    // Emails 24h
+    const totalEmails = (data.postmark?.sent_24h || 0) + (data.mailgun?.delivered_24h || 0);
+    document.getElementById('digivice-emails').textContent = totalEmails;
+    
+    // CPU
+    const cpu = data.server?.cpu || 0;
+    document.getElementById('digivice-cpu').textContent = cpu.toFixed(1) + '%';
+}
+
+// ==================== SHOW NEW TIP ====================
+function showNewTip() {
+    console.log('[DIGIVICE] Showing new tip...');
+    
+    // Get next tip
+    currentTipIndex = (currentTipIndex + 1) % INTELIMON_TIPS.length;
+    const tip = INTELIMON_TIPS[currentTipIndex];
+    
+    // Update screen content
+    const screen = document.querySelector('.digivice-content');
+    if (screen) {
+        screen.querySelector('.digivice-title').textContent = tip.title;
+        screen.querySelector('.digivice-message').textContent = tip.message;
+        
+        // Add animation
+        screen.style.animation = 'none';
+        setTimeout(() => {
+            screen.style.animation = 'fadeIn 0.3s ease-in-out';
+        }, 10);
     }
     
-    // Stop audio
-    if (digimonAudio) {
-        digimonAudio.pause();
-        digimonAudio.currentTime = 0;
-    }
+    // Update stats
+    updateDigiviceStats();
 }
 
-function showRandomTip() {
-    const tip = INTELIMON_TIPS[Math.floor(Math.random() * INTELIMON_TIPS.length)];
+// ==================== ANALYZE SYSTEM ====================
+function analyzeSystem() {
+    console.log('[DIGIVICE] Analyzing system...');
     
-    const messageEl = document.getElementById('digimon-message');
-    const tipEl = document.getElementById('digimon-tip');
+    const data = window.state?.data || {};
     
-    if (messageEl) messageEl.textContent = tip.message;
-    if (tipEl) tipEl.textContent = tip.tip;
-}
-
-function getNewTip() {
-    showRandomTip();
-    
-    // Add animation
-    const messageEl = document.getElementById('digimon-message');
-    const tipEl = document.getElementById('digimon-tip');
-    
-    [messageEl, tipEl].forEach(el => {
-        if (el) {
-            el.style.animation = 'none';
-            setTimeout(() => {
-                el.style.animation = 'fadeIn 0.5s ease-in-out';
-            }, 10);
-        }
-    });
-}
-
-async function analyzeEnvironment() {
-    const messageEl = document.getElementById('digimon-message');
-    const tipEl = document.getElementById('digimon-tip');
-    
-    if (messageEl) messageEl.textContent = "Analisando o ambiente... 🔍";
-    if (tipEl) tipEl.textContent = "Aguarde enquanto verifico todos os serviços...";
-    
-    // Fetch current data
-    try {
-        const [postmark, mailgun, pmg, server, cpanel] = await Promise.all([
-            fetch('/api/postmark').then(r => r.json()).catch(() => ({ status: 'error' })),
-            fetch('/api/mailgun').then(r => r.json()).catch(() => ({ status: 'error' })),
-            fetch('/api/pmg').then(r => r.json()).catch(() => ({ status: 'error' })),
-            fetch('/api/server').then(r => r.json()).catch(() => ({ status: 'error' })),
-            fetch('/api/cpanel').then(r => r.json()).catch(() => ({ status: 'error' }))
-        ]);
-        
-        currentEnvironmentData = { postmark, mailgun, pmg, server, cpanel };
-        
-        // Analyze health
-        const analysis = analyzeSystemHealth(currentEnvironmentData);
-        
-        // Update UI with analysis
-        if (messageEl) messageEl.textContent = analysis.message;
-        if (tipEl) tipEl.innerHTML = analysis.details;
-        
-        // Update stats
-        updateDigimonStats();
-        
-    } catch (error) {
-        console.error('[DIGIMON] Analysis error:', error);
-        if (messageEl) messageEl.textContent = "Erro ao analisar o ambiente! ❌";
-        if (tipEl) tipEl.textContent = "Não foi possível conectar aos serviços. Verifique a conexão.";
-    }
-}
-
-function analyzeSystemHealth(data) {
-    const issues = [];
+    // Calculate health score
     let healthScore = 100;
-    let activeServices = 0;
+    let problems = [];
     
-    // Check Postmark
-    if (data.postmark && data.postmark.status === 'success') {
-        activeServices++;
-        const bounceRate = data.postmark['24h']?.bounced || 0;
-        const sent = data.postmark['24h']?.sent || 1;
-        const bouncePercent = (bounceRate / sent) * 100;
-        
-        if (bouncePercent > 5) {
-            issues.push(`⚠️ Taxa de bounce do Postmark alta: ${bouncePercent.toFixed(1)}%`);
-            healthScore -= 15;
-        }
-    } else {
-        issues.push('❌ Postmark não está respondendo');
-        healthScore -= 20;
-    }
-    
-    // Check Mailgun
-    if (data.mailgun && data.mailgun.status === 'success') {
-        activeServices++;
-    } else {
-        issues.push('❌ Mailgun não está respondendo');
-        healthScore -= 20;
-    }
-    
-    // Check PMG
-    if (data.pmg && data.pmg.status === 'success') {
-        activeServices++;
-        const queueCount = data.pmg.queue?.count || 0;
-        
-        if (queueCount > 100) {
-            issues.push(`⚠️ Fila do PMG alta: ${queueCount} emails`);
-            healthScore -= 10;
-        }
-    } else {
-        issues.push('❌ PMG não está respondendo');
-        healthScore -= 20;
-    }
-    
-    // Check Server
-    if (data.server && data.server.status === 'success') {
-        activeServices++;
-        const cpuUsage = data.server.cpu?.usage || 0;
-        const memUsage = data.server.memory?.percent || 0;
-        const diskUsage = data.server.disk?.percent || 0;
-        
-        if (cpuUsage > 90) {
-            issues.push(`🔥 CPU crítica: ${cpuUsage}%`);
-            healthScore -= 15;
-        } else if (cpuUsage > 80) {
-            issues.push(`⚠️ CPU alta: ${cpuUsage}%`);
-            healthScore -= 10;
-        }
-        
-        if (memUsage > 90) {
-            issues.push(`🔥 Memória crítica: ${memUsage}%`);
-            healthScore -= 15;
-        } else if (memUsage > 80) {
-            issues.push(`⚠️ Memória alta: ${memUsage}%`);
-            healthScore -= 10;
-        }
-        
-        if (diskUsage > 90) {
-            issues.push(`🔥 Disco crítico: ${diskUsage}%`);
-            healthScore -= 15;
-        } else if (diskUsage > 80) {
-            issues.push(`⚠️ Disco alto: ${diskUsage}%`);
-            healthScore -= 10;
-        }
-    } else {
-        issues.push('❌ Servidor não está respondendo');
-        healthScore -= 20;
-    }
-    
-    // Check cPanel
-    if (data.cpanel && data.cpanel.status === 'success') {
-        activeServices++;
-    } else {
-        issues.push('❌ cPanel/WHM não está respondendo');
+    // Check services
+    if (!data.postmark?.success) {
         healthScore -= 15;
+        problems.push('❌ Postmark offline');
+    }
+    if (!data.mailgun?.success) {
+        healthScore -= 15;
+        problems.push('❌ Mailgun offline');
+    }
+    if (!data.pmg?.success) {
+        healthScore -= 15;
+        problems.push('❌ PMG offline');
+    }
+    if (!data.server?.success) {
+        healthScore -= 20;
+        problems.push('❌ Servidor offline');
+    }
+    if (!data.cpanel?.success) {
+        healthScore -= 10;
+        problems.push('❌ cPanel offline');
     }
     
-    // Determine health level
-    let level, messages;
-    if (healthScore >= 90) {
-        level = 'excellent';
-        messages = ANALYSIS_MESSAGES.excellent;
-    } else if (healthScore >= 70) {
-        level = 'good';
-        messages = ANALYSIS_MESSAGES.good;
-    } else if (healthScore >= 50) {
-        level = 'warning';
-        messages = ANALYSIS_MESSAGES.warning;
-    } else {
-        level = 'critical';
-        messages = ANALYSIS_MESSAGES.critical;
+    // Check server resources
+    if (data.server?.cpu > 80) {
+        healthScore -= 10;
+        problems.push('⚠️ CPU crítica: ' + data.server.cpu.toFixed(1) + '%');
+    } else if (data.server?.cpu > 60) {
+        healthScore -= 5;
+        problems.push('⚠️ CPU alta: ' + data.server.cpu.toFixed(1) + '%');
     }
     
-    const message = messages[Math.floor(Math.random() * messages.length)];
-    
-    let details = `<strong>Score de Saúde: ${healthScore}/100</strong><br><br>`;
-    
-    if (issues.length === 0) {
-        details += '✅ Nenhum problema detectado!<br>';
-        details += '✅ Todos os serviços operando normalmente<br>';
-        details += '✅ Recursos do sistema em níveis saudáveis';
-    } else {
-        details += '<strong>Problemas Detectados:</strong><br>';
-        details += issues.map(issue => `${issue}<br>`).join('');
+    if (data.server?.memory_percent > 80) {
+        healthScore -= 10;
+        problems.push('⚠️ Memória crítica: ' + data.server.memory_percent.toFixed(1) + '%');
+    } else if (data.server?.memory_percent > 60) {
+        healthScore -= 5;
+        problems.push('⚠️ Memória alta: ' + data.server.memory_percent.toFixed(1) + '%');
     }
     
-    return { message, details, healthScore, level, activeServices };
-}
-
-function updateDigimonStats() {
-    // Count active services
-    let activeServices = 0;
-    const services = ['postmark', 'mailgun', 'pmg', 'server', 'cpanel'];
+    if (data.server?.disk_percent > 80) {
+        healthScore -= 10;
+        problems.push('⚠️ Disco crítico: ' + data.server.disk_percent.toFixed(1) + '%');
+    } else if (data.server?.disk_percent > 60) {
+        healthScore -= 5;
+        problems.push('⚠️ Disco alto: ' + data.server.disk_percent.toFixed(1) + '%');
+    }
     
-    services.forEach(service => {
-        if (currentEnvironmentData[service] && currentEnvironmentData[service].status === 'success') {
-            activeServices++;
+    // Check email metrics
+    if (data.postmark?.bounce_rate > 5) {
+        healthScore -= 5;
+        problems.push('⚠️ Taxa de bounce alta: ' + data.postmark.bounce_rate.toFixed(1) + '%');
+    }
+    
+    // Ensure score doesn't go below 0
+    healthScore = Math.max(0, healthScore);
+    
+    // Determine health class
+    let healthClass = 'health-score-excellent';
+    let healthMessage = 'Sistema Perfeito! 🎉';
+    
+    if (healthScore < 30) {
+        healthClass = 'health-score-critical';
+        healthMessage = 'URGENTE! Múltiplos problemas! 🆘';
+    } else if (healthScore < 60) {
+        healthClass = 'health-score-warning';
+        healthMessage = 'Atenção! Problemas detectados! ⚠️';
+    } else if (healthScore < 90) {
+        healthClass = 'health-score-good';
+        healthMessage = 'Sistema OK, mas pode melhorar! 👍';
+    }
+    
+    // Update screen with analysis
+    const screen = document.querySelector('.digivice-content');
+    if (screen) {
+        screen.innerHTML = `
+            <div>
+                <div class="digivice-text digivice-title">${healthMessage}</div>
+                <div class="digivice-health-score ${healthClass} digivice-text">${healthScore}/100</div>
+                
+                ${problems.length > 0 ? `
+                    <div class="digivice-problems">
+                        ${problems.map(p => `<div class="digivice-problem digivice-text">${p}</div>`).join('')}
+                    </div>
+                ` : '<div class="digivice-text digivice-message">Tudo funcionando perfeitamente!</div>'}
+            </div>
+            
+            <div class="digivice-stats">
+                <div class="digivice-stat">
+                    <span class="digivice-stat-label digivice-text">SERVIÇOS</span>
+                    <span class="digivice-stat-value digivice-text" id="digivice-services">-</span>
+                </div>
+                <div class="digivice-stat">
+                    <span class="digivice-stat-label digivice-text">UPTIME</span>
+                    <span class="digivice-stat-value digivice-text" id="digivice-uptime">--</span>
+                </div>
+                <div class="digivice-stat">
+                    <span class="digivice-stat-label digivice-text">EMAILS 24H</span>
+                    <span class="digivice-stat-value digivice-text" id="digivice-emails">0</span>
+                </div>
+                <div class="digivice-stat">
+                    <span class="digivice-stat-label digivice-text">CPU</span>
+                    <span class="digivice-stat-value digivice-text" id="digivice-cpu">--%</span>
+                </div>
+            </div>
+        `;
+        
+        // Add pulse animation to screen
+        const screenElement = document.querySelector('.digivice-screen');
+        if (screenElement) {
+            screenElement.classList.add('digivice-analysis');
+            setTimeout(() => {
+                screenElement.classList.remove('digivice-analysis');
+            }, 2000);
         }
-    });
-    
-    // Get uptime
-    let uptime = '--';
-    if (currentEnvironmentData.server && currentEnvironmentData.server.uptime) {
-        uptime = currentEnvironmentData.server.uptime;
     }
     
-    // Get total emails 24h
-    let totalEmails = 0;
-    if (currentEnvironmentData.postmark && currentEnvironmentData.postmark['24h']) {
-        totalEmails += currentEnvironmentData.postmark['24h'].sent || 0;
-    }
-    if (currentEnvironmentData.mailgun && currentEnvironmentData.mailgun['24h']) {
-        totalEmails += Number(currentEnvironmentData.mailgun['24h'].delivered || 0);
-    }
-    
-    // Update UI
-    const servicesEl = document.getElementById('stat-services');
-    const uptimeEl = document.getElementById('stat-uptime');
-    const emailsEl = document.getElementById('stat-emails');
-    
-    if (servicesEl) servicesEl.textContent = `${activeServices}/${services.length}`;
-    if (uptimeEl) uptimeEl.textContent = uptime;
-    if (emailsEl) emailsEl.textContent = totalEmails.toLocaleString('pt-BR');
+    // Update stats
+    updateDigiviceStats();
 }
 
-function setupSidebarControls() {
-    const sidebar = document.getElementById('sidebar');
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const sidebarClose = document.getElementById('sidebar-close');
-    const sidebarExpand = document.getElementById('sidebar-expand');
+// ==================== CLOSE DIGIVICE ====================
+function closeDigivice() {
+    console.log('[DIGIVICE] Closing...');
     
-    // Mobile toggle
-    if (hamburgerBtn) {
-        hamburgerBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-64');
-            sidebar.classList.toggle('translate-x-0');
+    const modal = document.getElementById('digivice-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    
+    digiviceActive = false;
+    konamiProgress = 0;
+}
+
+// ==================== PLAY SOUND ====================
+function playDigiviceSound() {
+    try {
+        const audio = new Audio('/static/audio/digimon-adventure.mp3');
+        audio.volume = 0.3;
+        audio.play().catch(err => {
+            console.log('[DIGIVICE] Audio playback failed (user interaction required):', err.message);
         });
-    }
-    
-    if (sidebarClose) {
-        sidebarClose.addEventListener('click', () => {
-            sidebar.classList.add('-translate-x-64');
-            sidebar.classList.remove('translate-x-0');
-        });
-    }
-    
-    // Desktop expand/collapse
-    if (sidebarExpand) {
-        sidebarExpand.addEventListener('click', () => {
-            document.body.classList.toggle('sidebar-expanded');
-            localStorage.setItem('sidebar-expanded', document.body.classList.contains('sidebar-expanded'));
-        });
-    }
-    
-    // Restore sidebar state
-    const sidebarExpanded = localStorage.getItem('sidebar-expanded');
-    if (sidebarExpanded === 'true') {
-        document.body.classList.add('sidebar-expanded');
+    } catch (error) {
+        console.log('[DIGIVICE] Audio not available:', error.message);
     }
 }
 
-// Export functions to global scope
+// ==================== UTILITY FUNCTIONS ====================
+function formatUptimeShort(seconds) {
+    const days = Math.floor(seconds / 86400);
+    const hours = Math.floor((seconds % 86400) / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    
+    if (days > 0) return `${days}d`;
+    if (hours > 0) return `${hours}h`;
+    return `${minutes}m`;
+}
+
+// ==================== GLOBAL FUNCTIONS ====================
+// Make functions available globally for onclick handlers
+window.showNewTip = showNewTip;
+window.analyzeSystem = analyzeSystem;
 window.closeDigivice = closeDigivice;
-window.getNewTip = getNewTip;
-window.analyzeEnvironment = analyzeEnvironment;
 
-console.log('[DIGIMON] Easter Egg loaded! Try the Konami Code: ↑↑↓↓←→←→BA');
+console.log('[DIGIVICE] Easter Egg initialized. Type Konami Code: ↑↑↓↓←→←→BA');

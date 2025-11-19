@@ -3079,21 +3079,79 @@
       "action": "fetch",
       "status": "success",
       "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T18:17:36.583748Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "error",
+      "message": "Token năo configurado"
+    },
+    {
+      "timestamp": "2025-11-19T18:17:36.588798Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "error",
+      "message": "API Key nao configurada"
+    },
+    {
+      "timestamp": "2025-11-19T18:17:36.590077Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "Configurar PMG_SSH_HOST e PMG_SSH_PASSWORD"
+    },
+    {
+      "timestamp": "2025-11-19T18:17:36.594607Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "error",
+      "message": "SSH nao configurado (SERVER_HOST/SERVER_PASSWORD); usando API HTTP do WHM."
+    },
+    {
+      "timestamp": "2025-11-19T18:17:37.599536Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T18:17:49.802339Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "error",
+      "message": "Token năo configurado"
+    },
+    {
+      "timestamp": "2025-11-19T18:17:49.804859Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "error",
+      "message": "API Key nao configurada"
+    },
+    {
+      "timestamp": "2025-11-19T18:17:49.808089Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "Configurar PMG_SSH_HOST e PMG_SSH_PASSWORD"
+    },
+    {
+      "timestamp": "2025-11-19T18:17:49.812348Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "error",
+      "message": "SSH nao configurado (SERVER_HOST/SERVER_PASSWORD); usando API HTTP do WHM."
+    },
+    {
+      "timestamp": "2025-11-19T18:17:50.812241Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
     }
   ],
   "history": [
-    {
-      "timestamp": "2025-11-19T14:19:06.536861Z",
-      "title": "Teste server",
-      "detail": "Monitor remoto operacional",
-      "service": "server"
-    },
-    {
-      "timestamp": "2025-11-19T14:19:08.506478Z",
-      "title": "Teste cpanel",
-      "detail": "10 contas via ssh-script",
-      "service": "cpanel"
-    },
     {
       "timestamp": "2025-11-19T14:22:57.190120Z",
       "title": "PMG sincronizado",
@@ -4280,6 +4338,18 @@
       "timestamp": "2025-11-19T17:49:48.203719Z",
       "title": "Servidor monitorado",
       "detail": "4:04:10",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T18:17:37.605075Z",
+      "title": "Servidor monitorado",
+      "detail": "4:31:59",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T18:17:50.818660Z",
+      "title": "Servidor monitorado",
+      "detail": "4:32:12",
       "service": "server"
     }
   ]

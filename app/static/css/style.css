@@ -1,275 +1,655 @@
+/* =====================================================================
+   InteliMon Dashboard v4.0 - Professional Monitoring Interface
+   ===================================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
+/* ==================== GLOBAL STYLES ==================== */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
 }
 
-/* Tab System */
-.tab-pane {
-    display: none;
-}
-
-.tab-pane.active {
-    display: block;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-/* Navigation */
-.nav-btn.active {
-    background-color: rgb(243 244 246); /* light mode */
-}
-
-.dark .nav-btn.active {
-    background-color: rgb(15 23 42); /* dark mode */
-}
-
-/* Sidebar */
-.sidebar-expanded {
-    /* Handled by Tailwind classes */
-}
-
-@media (min-width: 1024px) {
-    body:not(.sidebar-expanded) #sidebar {
-        width: 5rem;
-    }
-    
-    body.sidebar-expanded #sidebar {
-        width: 16rem;
-    }
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { 
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes bounce-in {
-    0% {
-        opacity: 0;
-        transform: scale(0.3);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.05);
-    }
-    70% {
-        transform: scale(0.9);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes pulse-glow {
-    0%, 100% {
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-    }
-    50% {
-        box-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
-    }
-}
-
-.animate-bounce-in {
-    animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.animate-float {
-    animation: float 3s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-}
-
-/* Digivice Modal */
-#digivice-modal.flex {
-    display: flex !important;
-}
-
-/* Scrollbar Styling */
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* Custom Scrollbar for main content */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgb(15 23 42);
+    background: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(51 65 85);
+    background: #334155;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(71 85 105);
+    background: #475569;
 }
 
-/* Progress Bars */
-.progress-bar {
-    transition: width 0.3s ease-in-out;
+/* ==================== NAVIGATION ==================== */
+.nav-btn {
+    color: #94a3b8;
+    background-color: transparent;
 }
 
-/* Card Hover Effects */
+.nav-btn:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+.nav-btn.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* ==================== TAB PANES ==================== */
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== LOADING STATES ==================== */
+.skeleton-text {
+    position: relative;
+    overflow: hidden;
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+.skeleton-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-chart {
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* ==================== CARDS ==================== */
 .card-hover {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease;
 }
 
 .card-hover:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Status Badges */
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25rem 0.75rem;
+.status-badge-success {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-badge-warning {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-badge-danger {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-badge-info {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* ==================== PROGRESS BARS ==================== */
+.progress-bar {
+    height: 8px;
+    background-color: #1e293b;
     border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-/* Konami Code Easter Egg Styles */
-.konami-active {
-    animation: rainbow-bg 3s linear infinite;
-}
-
-@keyframes rainbow-bg {
-    0% { background-color: #ff0000; }
-    16.66% { background-color: #ff7f00; }
-    33.33% { background-color: #ffff00; }
-    50% { background-color: #00ff00; }
-    66.66% { background-color: #0000ff; }
-    83.33% { background-color: #8b00ff; }
-    100% { background-color: #ff0000; }
-}
-
-/* Responsive Utilities */
-@media (max-width: 640px) {
-    .max-xs\:sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-    }
-}
-
-/* Chart Containers */
-.chart-container {
-    position: relative;
-    height: 300px;
-}
-
-/* Loading Spinner */
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.animate-spin {
-    animation: spin 1s linear infinite;
-}
-
-/* Tooltip */
-.tooltip {
+    overflow: hidden;
     position: relative;
 }
 
-.tooltip::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.5rem;
-    background-color: rgb(15 23 42);
-    color: white;
-    border-radius: 0.375rem;
-    font-size: 0.75rem;
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 9999px;
+    transition: width 0.5s ease;
+}
+
+.progress-bar-fill.success {
+    background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.progress-bar-fill.warning {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.progress-bar-fill.danger {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+/* ==================== DOMAIN LIST (HORIZONTAL SCROLL) ==================== */
+.domain-list-container {
+    overflow-x: auto;
+    overflow-y: hidden;
     white-space: nowrap;
-    opacity: 0;
+    padding: 8px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #1e293b;
+}
+
+.domain-list-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.domain-list-container::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: 3px;
+}
+
+.domain-list-container::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+}
+
+.domain-list-container::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+.domain-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-right: 8px;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #cbd5e1;
+    transition: all 0.2s ease;
+}
+
+.domain-tag:hover {
+    background-color: #334155;
+    border-color: #3b82f6;
+    color: #ffffff;
+}
+
+/* ==================== LOGS ==================== */
+.log-entry {
+    padding: 12px 16px;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.log-entry:hover {
+    background-color: #334155;
+    border-color: #3b82f6;
+}
+
+.log-entry.log-success {
+    border-left: 3px solid #10b981;
+}
+
+.log-entry.log-warning {
+    border-left: 3px solid #f59e0b;
+}
+
+.log-entry.log-error {
+    border-left: 3px solid #ef4444;
+}
+
+.log-entry.log-info {
+    border-left: 3px solid #3b82f6;
+}
+
+/* ==================== DIGIVICE CLASSIC ==================== */
+#digivice-modal {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.digivice {
+    width: 320px;
+    height: 420px;
+    position: relative;
+    animation: digiviceAppear 0.5s ease-out;
+}
+
+@keyframes digiviceAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotateY(90deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotateY(0deg);
+    }
+}
+
+/* Digivice Body */
+.digivice-body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 50%, #ffa500 100%);
+    border-radius: 50px 50px 80px 80px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 2px 10px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 10px rgba(0, 0, 0, 0.3);
+    border: 4px solid #d45500;
+    position: relative;
+    padding: 20px;
+}
+
+/* Digivice Screen Container */
+.digivice-screen-container {
+    width: 100%;
+    height: 200px;
+    background: #2a2a2a;
+    border-radius: 20px;
+    padding: 8px;
+    box-shadow: 
+        inset 0 4px 8px rgba(0, 0, 0, 0.5),
+        0 2px 4px rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+/* Tribal Border Pattern */
+.digivice-screen-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #444;
+    border-radius: 18px;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.05) 10px,
+        rgba(255, 255, 255, 0.05) 20px
+    );
+}
+
+/* LCD Screen */
+.digivice-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a4d2e 0%, #0f3a1f 100%);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* LCD Grid Effect */
+.digivice-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(0, 255, 100, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 100, 0.03) 1px, transparent 1px);
+    background-size: 2px 2px;
     pointer-events: none;
-    transition: opacity 0.3s;
 }
 
-.tooltip:hover::before {
-    opacity: 1;
+/* Screen Content */
+.digivice-content {
+    position: relative;
+    z-index: 2;
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* Button Styles */
-.btn {
-    display: inline-flex;
+/* Mascot */
+.digivice-mascot {
+    text-align: center;
+    font-size: 48px;
+    margin: 10px 0;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 100, 0.5));
+}
+
+/* Text */
+.digivice-text {
+    color: #00ff66;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    text-shadow: 0 0 8px rgba(0, 255, 100, 0.8);
+    line-height: 1.4;
+}
+
+.digivice-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.digivice-message {
+    font-size: 12px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+/* Stats */
+.digivice-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.digivice-stat {
+    background: rgba(0, 255, 100, 0.1);
+    border: 1px solid rgba(0, 255, 100, 0.3);
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+}
+
+.digivice-stat-label {
+    font-size: 9px;
+    opacity: 0.7;
+    display: block;
+}
+
+.digivice-stat-value {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Buttons Container */
+.digivice-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Digivice Buttons */
+.digivice-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px solid #333;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
-    transition: all 0.2s ease-in-out;
 }
 
-.btn:hover {
-    transform: translateY(-1px);
+.digivice-btn:active {
+    transform: translateY(2px);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-.btn:active {
-    transform: translateY(0);
+.digivice-btn-left {
+    background: radial-gradient(circle at 30% 30%, #60a5fa, #3b82f6);
 }
 
-/* Table Styles */
-table tbody tr {
-    transition: background-color 0.2s ease-in-out;
+.digivice-btn-center {
+    background: radial-gradient(circle at 30% 30%, #fbbf24, #f59e0b);
+    width: 70px;
+    height: 70px;
 }
 
-/* Form Inputs */
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
+.digivice-btn-right {
+    background: radial-gradient(circle at 30% 30%, #f87171, #ef4444);
 }
 
-/* Dark Mode Transitions */
-* {
-    transition-property: background-color, border-color, color;
-    transition-duration: 200ms;
-    transition-timing-function: ease-in-out;
+/* Button Labels */
+.digivice-btn-label {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: #cbd5e1;
+    white-space: nowrap;
 }
 
-/* Prevent transition on page load */
-.preload * {
-    transition: none !important;
+/* Close Button */
+.digivice-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 32px;
+    height: 32px;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.digivice-close:hover {
+    background: #dc2626;
+    transform: scale(1.1);
+}
+
+/* Analysis Mode */
+.digivice-analysis {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 255, 100, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 255, 100, 0.8);
+    }
+}
+
+/* Health Score */
+.digivice-health-score {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.health-score-excellent {
+    color: #00ff66;
+}
+
+.health-score-good {
+    color: #66ff00;
+}
+
+.health-score-warning {
+    color: #ffaa00;
+}
+
+.health-score-critical {
+    color: #ff3333;
+}
+
+/* Problem List */
+.digivice-problems {
+    max-height: 100px;
+    overflow-y: auto;
+    font-size: 11px;
+    margin-top: 8px;
+}
+
+.digivice-problem {
+    padding: 4px;
+    margin: 2px 0;
+    background: rgba(255, 51, 51, 0.2);
+    border-left: 2px solid #ff3333;
+    border-radius: 2px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    #sidebar {
+        transform: translateX(-100%);
+    }
+    
+    #sidebar.open {
+        transform: translateX(0);
+    }
+    
+    #main-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .digivice {
+        width: 280px;
+        height: 380px;
+    }
+    
+    .digivice-screen-container {
+        height: 180px;
+    }
+    
+    .digivice-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .digivice-btn-center {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+}
+
+.animate-slide-in-up {
+    animation: slideInUp 0.3s ease-out;
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+.text-gradient {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.glow-success {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.glow-warning {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+.glow-danger {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
 }

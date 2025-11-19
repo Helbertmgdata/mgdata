@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InteliMon Dashboard v3.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+    <link rel="icon" href="{{ url_for('static', filename='img/InteliMON_Logo.png') }}" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter antialiased bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400">
+    
+    <!-- Digivice Easter Egg Modal -->
+    <div id="digivice-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/80 backdrop-blur-sm">
+        <div class="relative max-w-2xl w-full mx-4 animate-bounce-in">
+            <!-- Digivice Container -->
+            <div class="bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-3xl p-1 shadow-2xl">
+                <div class="bg-gray-900 rounded-3xl p-8">
+                    <!-- Close Button -->
+                    <button onclick="closeDigivice()" class="absolute top-4 right-4 text-white hover:text-red-500 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Digivice Screen -->
+                    <div class="bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl p-6 mb-6 border-4 border-gray-700 shadow-inner">
+                        <div class="text-center mb-4">
+                            <h2 class="text-3xl font-bold text-white drop-shadow-lg animate-pulse">DIGIVICE ATIVADO!</h2>
+                        </div>
+                        
+                        <!-- InteliMon Mascot -->
+                        <div class="flex justify-center mb-4">
+                            <div class="relative">
+                                <img src="{{ url_for('static', filename='img/InteliMON_Mascote.png') }}" 
+                                     alt="InteliMon" 
+                                     class="w-48 h-48 object-contain animate-float drop-shadow-2xl" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent rounded-full blur-xl"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- InteliMon Message -->
+                        <div class="bg-white/90 rounded-xl p-4 backdrop-blur-sm">
+                            <p class="text-gray-900 font-semibold text-center mb-2" id="digimon-message">
+                                Olá, parceiro! Eu sou o InteliMon! 🔥
+                            </p>
+                            <p class="text-gray-700 text-sm text-center" id="digimon-tip">
+                                Carregando dicas do ambiente...
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="getNewTip()" class="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg">
+                            💡 Nova Dica
+                        </button>
+                        <button onclick="analyzeEnvironment()" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg">
+                            🔍 Analisar Sistema
+                        </button>
+                    </div>
+                    
+                    <!-- Stats Display -->
+                    <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+                        <div class="bg-gray-800/50 rounded-lg p-3 border border-gray-700">
+                            <div class="text-2xl font-bold text-green-400" id="stat-services">-</div>
+                            <div class="text-xs text-gray-400">Serviços Ativos</div>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-lg p-3 border border-gray-700">
+                            <div class="text-2xl font-bold text-blue-400" id="stat-uptime">-</div>
+                            <div class="text-xs text-gray-400">Uptime</div>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-lg p-3 border border-gray-700">
+                            <div class="text-2xl font-bold text-purple-400" id="stat-emails">-</div>
+                            <div class="text-xs text-gray-400">Emails 24h</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="flex lg:flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-[100dvh] overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-white dark:bg-gray-800 p-4 transition-all duration-200 ease-in-out rounded-r-2xl shadow-sm -translate-x-64 lg:translate-x-0">
+            <!-- Sidebar header -->
+            <div class="flex justify-between mb-10 pr-3 sm:px-2">
+                <!-- Close button -->
+                <button id="sidebar-close" class="lg:hidden text-gray-500 hover:text-gray-400">
+                    <span class="sr-only">Close sidebar</span>
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.7 18.7l1.4-1.4L7.8 13H20v-2H7.8l4.3-4.3-1.4-1.4L4 12z" />
+                    </svg>
+                </button>
+                <!-- Logo -->
+                <a class="block" href="/">
+                    <img src="{{ url_for('static', filename='img/InteliMON_Logo.png') }}" class="w-8 h-8" alt="InteliMon Logo">
+                </a>
+            </div>
+
+            <!-- Links -->
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-xs uppercase text-gray-400 dark:text-gray-500 font-semibold pl-3">
+                        <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6" aria-hidden="true">•••</span>
+                        <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">Monitoramento</span>
+                    </h3>
+                    <ul class="mt-3" id="main-nav">
+                        <li class="px-3 py-2 rounded-lg mb-0.5 last:mb-0 nav-btn active bg-gray-100 dark:bg-gray-900" data-tab="dashboard">
+                            <a class="block text-gray-800 dark:text-gray-100 hover:text-gray-900 dark:hover:text-white truncate transition duration-150" href="#0">
+                                <div class="flex items-center">
+                                    <svg class="shrink-0 h-6 w-6 fill-current text-gray-400 dark:text-gray-500" viewBox="0 0 24 24">
+                                        <path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zM12 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"></path>
+                                    </svg>
+                                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="px-3 py-2 rounded-lg mb-0.5 last:mb-0 nav-btn hover:bg-gray-100 dark:hover:bg-gray-900" data-tab="logs">
+                            <a class="block text-gray-800 dark:text-gray-100 hover:text-gray-900 dark:hover:text-white truncate transition duration-150" href="#0">
+                                <div class="flex items-center">
+                                    <svg class="shrink-0 h-6 w-6 fill-current text-gray-400 dark:text-gray-500" viewBox="0 0 24 24">
+                                        <path d="M1 1h22v22H1z" opacity="0.3"></path>
+                                        <path d="M15 10.586L16.414 12 15 13.414 13.586 12 15 10.586zM19 4v16H5V4h14zm2-2H3v20h18V2z"></path>
+                                    </svg>
+                                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Logs</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="px-3 py-2 rounded-lg mb-0.5 last:mb-0 nav-btn hover:bg-gray-100 dark:hover:bg-gray-900" data-tab="history">
+                            <a class="block text-gray-800 dark:text-gray-100 hover:text-gray-900 dark:hover:text-white truncate transition duration-150" href="#0">
+                                <div class="flex items-center">
+                                    <svg class="shrink-0 h-6 w-6 fill-current text-gray-400 dark:text-gray-500" viewBox="0 0 24 24">
+                                        <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"></path>
+                                    </svg>
+                                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Histórico</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="px-3 py-2 rounded-lg mb-0.5 last:mb-0 nav-btn hover:bg-gray-100 dark:hover:bg-gray-900" data-tab="credentials">
+                            <a class="block text-gray-800 dark:text-gray-100 hover:text-gray-900 dark:hover:text-white truncate transition duration-150" href="#0">
+                                <div class="flex items-center">
+                                    <svg class="shrink-0 h-6 w-6 fill-current text-gray-400 dark:text-gray-500" viewBox="0 0 24 24">
+                                        <path d="M19 7h-1V6a6 6 0 1 0-12 0v1H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2ZM8 6a4 4 0 1 1 8 0v1H8V6Z"></path>
+                                    </svg>
+                                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Credenciais</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Expand / collapse button -->
+            <div class="pt-3 hidden lg:inline-flex 2xl:hidden justify-end mt-auto">
+                <div class="px-3 py-2">
+                    <button id="sidebar-expand">
+                        <span class="sr-only">Expand / collapse sidebar</span>
+                        <svg class="w-6 h-6 fill-current sidebar-expanded:rotate-180 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24">
+                            <path d="M19.586 11l-5-5L16 4.586 23.414 12 16 19.414 14.586 18l5-5H7v-2z" />
+                            <path d="M3 23H1V1h2z" opacity="0.3" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content area -->
+        <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+            <!-- Site header -->
+            <header class="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700/60 z-30">
+                <div class="px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center justify-between h-16 -mb-px">
+                        <!-- Header: Left side -->
+                        <div class="flex items-center gap-4">
+                            <!-- Hamburger button -->
+                            <button id="hamburger-btn" class="text-gray-500 hover:text-gray-600 lg:hidden">
+                                <span class="sr-only">Open sidebar</span>
+                                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="4" y="5" width="16" height="2" />
+                                    <rect x="4" y="11" width="16" height="2" />
+                                    <rect x="4" y="17" width="16" height="2" />
+                                </svg>
+                            </button>
+                            <h1 class="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 font-bold">InteliMon Dashboard</h1>
+                        </div>
+                        <!-- Header: Right side -->
+                        <div class="flex items-center space-x-3">
+                            <div id="refresh-btn" class="text-sm hidden sm:block">
+                                <span class="text-gray-500 dark:text-gray-400">Última sincronização:</span> 
+                                <span id="last-update" class="font-medium text-gray-800 dark:text-gray-200">--:--:--</span>
+                            </div>
+                            <hr class="w-px h-6 bg-gray-200 dark:bg-gray-700 border-none hidden sm:block" />
+                            <button class="btn bg-gray-900 text-gray-100 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-white px-4 py-2 rounded-lg transition-colors" onclick="refreshAllData()">
+                                <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
+                                    <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
+                                </svg>
+                                <span class="hidden xs:inline-block ml-2">Sincronizar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="grow">
+                <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+                    <!-- Dashboard Tab -->
+                    <div class="tab-pane active" id="tab-dashboard">
+                        <div class="grid grid-cols-12 gap-6">
+                            <div class="flex flex-col col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60" id="summary-total-sent-card"></div>
+                            <div class="flex flex-col col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60" id="summary-open-rate-card"></div>
+                            <div class="flex flex-col col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60" id="summary-pmg-queue-card"></div>
+                            <div class="flex flex-col col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60" id="summary-whm-accounts-card"></div>
+
+                            <div class="col-span-full xl:col-span-6 bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60" id="server-card"></div>
+                            <div class="col-span-full xl:col-span-6 bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60" id="pmg-card"></div>
+                            <div class="col-span-full xl:col-span-6 bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60" id="postmark-card"></div>
+                            <div class="col-span-full xl:col-span-6 bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60" id="mailgun-card"></div>
+                            
+                            <div class="col-span-full bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60" id="cpanel-card"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Logs Tab -->
+                    <div class="tab-pane" id="tab-logs">
+                        <div class="space-y-6">
+                            <div class="bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60">
+                                <div class="px-5 py-4 border-b border-gray-200 dark:border-gray-700/60 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                                    <div>
+                                        <h2 class="font-semibold text-gray-800 dark:text-gray-100">Registro de eventos</h2>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">Tudo que o InteliMon executou fica registrado aqui.</p>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                                        <select id="log-service-filter" class="px-3 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
+                                            <option value="all">Todos os serviços</option>
+                                            <option value="postmark">Postmark</option>
+                                            <option value="mailgun">Mailgun</option>
+                                            <option value="pmg">PMG</option>
+                                            <option value="server">Servidor</option>
+                                            <option value="cpanel">cPanel / WHM</option>
+                                        </select>
+                                        <input id="log-search" type="text" placeholder="Buscar por ação ou mensagem" class="px-3 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-500/50 flex-1" />
+                                        <button id="logs-refresh-btn" class="px-4 py-2 text-sm font-semibold bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-800 hover:bg-gray-800 dark:hover:bg-white rounded-lg flex items-center justify-center gap-2 transition-colors">
+                                            <svg class="w-4 h-4 opacity-70" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 5V1L7 6l5 5V7c3.309 0 6 2.691 6 6a6 6 0 0 1-7 5.917v2.019A8 8 0 0 0 20 13c0-4.411-3.589-8-8-8Z" fill="currentColor"/>
+                                                <path d="M12 19v4l5-5-5-5v4c-3.309 0-6-2.691-6-6a6 6 0 0 1 7-5.917V3.064A8 8 0 0 0 4 11c0 4.411 3.589 8 8 8Z" fill="currentColor"/>
+                                            </svg>
+                                            Atualizar
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="overflow-x-auto">
+                                    <table class="table-auto w-full text-sm">
+                                        <thead class="text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/70 border-b border-gray-200 dark:border-gray-700/60">
+                                            <tr>
+                                                <th class="p-3 text-left">Data</th>
+                                                <th class="p-3 text-left">Serviço</th>
+                                                <th class="p-3 text-left">Ação</th>
+                                                <th class="p-3 text-left">Status</th>
+                                                <th class="p-3 text-left">Detalhes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="logs-table-body" class="text-sm divide-y divide-gray-200 dark:divide-gray-700/60">
+                                            <!-- Logs will be populated here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Historico Tab -->
+                    <div class="tab-pane" id="tab-historico">
+                        <div class="bg-white dark:bg-gray-800 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60">
+                            <div class="px-5 py-4 border-b border-gray-200 dark:border-gray-700/60">
+                                <h2 class="font-semibold text-gray-800 dark:text-gray-100">Histórico de Atividades</h2>
+                            </div>
+                            <div class="p-5">
+                                <div id="history-container" class="space-y-3">
+                                    <!-- History will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Credentials Tab -->
+                    <div class="tab-pane" id="tab-credentials">
+                        <div id="credentials-container" class="space-y-6">
+                            <!-- Credentials will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Audio for Digimon Theme -->
+    <audio id="digimon-audio" preload="auto">
+        <source src="{{ url_for('static', filename='audio/digimon-adventure.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/digimon-easter-egg.js') }}"></script>
+</body>
+</html>
