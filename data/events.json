@@ -1,0 +1,4286 @@
+{
+  "logs": [
+    {
+      "timestamp": "2025-11-19T12:27:47.312509Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:27:48.124195Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:27:49.104148Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:27:49.270479Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:28:10.456700Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T12:28:11.800660Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:28:12.304486Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "46 domínios encontrados"
+    },
+    {
+      "timestamp": "2025-11-19T12:28:12.452645Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "success",
+      "message": "HTTP 200"
+    },
+    {
+      "timestamp": "2025-11-19T12:28:13.492471Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T12:28:37.776312Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:29:00.052128Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:29:00.113640Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:29:00.922517Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:29:01.838469Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:29:08.409584Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "success",
+      "message": "HTTP 200"
+    },
+    {
+      "timestamp": "2025-11-19T12:29:11.856350Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T12:29:12.202312Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "46 domínios encontrados"
+    },
+    {
+      "timestamp": "2025-11-19T12:29:16.785031Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T12:29:24.361664Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:29:43.817501Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:31:32.872456Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:31:33.774913Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:31:34.536506Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:31:34.587647Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:31:57.246564Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:32:47.257054Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:32:47.406136Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:32:48.143361Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:32:49.076389Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:33:12.803764Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:36:45.757925Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:36:47.726504Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:36:52.078808Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:36:58.562241Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:37:47.844897Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:37:48.750029Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:37:49.627647Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:37:49.797588Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:38:11.978171Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:41:12.016886Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:41:12.847415Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:41:13.638260Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:41:13.759483Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:41:36.102740Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:43:46.168921Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "PMG respondeu 501: {\"data\":null,\"message\":\"Method 'GET /nodes/pmg/status/mail' not implemented\"}"
+    },
+    {
+      "timestamp": "2025-11-19T12:43:46.855295Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:43:47.712135Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:43:47.838713Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:44:32.449463Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:47:31.710405Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T12:47:32.158674Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "0 mensagens nas ultimas 24h (intelimail.com.br)"
+    },
+    {
+      "timestamp": "2025-11-19T12:47:32.476360Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "PMG respondeu 501: {\"message\":\"Method 'GET /nodes/pmg/status/mail' not implemented\",\"data\":null}"
+    },
+    {
+      "timestamp": "2025-11-19T12:47:33.506072Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T12:48:19.858567Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "warning",
+      "message": "10 contas via http (Avisos: [WHM_SSH] Falha no SSH, tentando HTTP: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu)"
+    },
+    {
+      "timestamp": "2025-11-19T12:48:46.980420Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:48:47.104714Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "PMG respondeu 501: {\"message\":\"Method 'GET /nodes/pmg/status/mail' not implemented\",\"data\":null}"
+    },
+    {
+      "timestamp": "2025-11-19T12:48:47.193921Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:48:47.815641Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:49:33.510065Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:53:47.131865Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "PMG respondeu 501: {\"message\":\"Method 'GET /nodes/pmg/status/mail' not implemented\",\"data\":null}"
+    },
+    {
+      "timestamp": "2025-11-19T12:53:47.315882Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:53:47.888754Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:53:48.623214Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:54:33.263266Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T12:58:47.202537Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "PMG respondeu 501: {\"data\":null,\"message\":\"Method 'GET /nodes/pmg/status/mail' not implemented\"}"
+    },
+    {
+      "timestamp": "2025-11-19T12:58:47.285000Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:58:47.927409Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:58:48.563229Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T12:59:33.157733Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:03:47.191694Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "PMG respondeu 501: {\"message\":\"Method 'GET /nodes/pmg/status/mail' not implemented\",\"data\":null}"
+    },
+    {
+      "timestamp": "2025-11-19T13:03:47.538802Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:03:47.962234Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:03:48.636188Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:04:33.450234Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:08:47.233042Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "PMG respondeu 501: {\"message\":\"Method 'GET /nodes/pmg/status/mail' not implemented\",\"data\":null}"
+    },
+    {
+      "timestamp": "2025-11-19T13:08:47.433422Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:08:47.986067Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:08:48.599021Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:09:33.576067Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:13:47.304313Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "PMG respondeu 501: {\"data\":null,\"message\":\"Method 'GET /nodes/pmg/status/mail' not implemented\"}"
+    },
+    {
+      "timestamp": "2025-11-19T13:13:47.423477Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:13:48.044827Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:13:48.837904Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:14:33.481271Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:19:07.409554Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "PMG respondeu 501: {\"data\":null,\"message\":\"Method 'GET /nodes/pmg/status/mail' not implemented\"}"
+    },
+    {
+      "timestamp": "2025-11-19T13:19:07.630165Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:19:08.130408Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:19:08.870628Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:19:53.674150Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:24:07.427495Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "PMG respondeu 501: {\"data\":null,\"message\":\"Method 'GET /nodes/pmg/status/mail' not implemented\"}"
+    },
+    {
+      "timestamp": "2025-11-19T13:24:07.482780Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:24:08.125767Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:24:08.895434Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:24:53.571565Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:25:39.644859Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:25:40.665993Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:25:41.407245Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:25:42.969579Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T13:25:47.368964Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:25:52.993270Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:25:56.126411Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "586 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T13:25:56.161886Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:25:57.195209Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T13:26:25.927888Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:26:43.556196Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "warning",
+      "message": "10 contas via http (Avisos: [WHM_SSH] Falha no SSH, tentando HTTP: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu)"
+    },
+    {
+      "timestamp": "2025-11-19T13:27:07.678742Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:27:11.766511Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:27:11.959673Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:27:12.779362Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:27:23.562729Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:27:41.357591Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T13:27:52.862675Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "588 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T13:27:52.906486Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:27:53.938780Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T13:27:58.007181Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:05.209257Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:05.392755Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:06.228417Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:17.345044Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:37.390004Z",
+      "service": "pmg",
+      "action": "credentials",
+      "status": "success",
+      "message": "Credenciais atualizadas"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:37.566996Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:37.805202Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:38.604861Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:39.338109Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:40.701697Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "warning",
+      "message": "10 contas via http (Avisos: [WHM_SSH] Falha no SSH, tentando HTTP: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu)"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:51.535695Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "591 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:51.579295Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:51.623415Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:51.661387Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:28:52.620943Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:01.623218Z",
+      "service": "pmg",
+      "action": "credentials",
+      "status": "success",
+      "message": "Credenciais atualizadas"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:01.681392Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:01.860168Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:01.893541Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:02.722669Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:13.364480Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:13.619729Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "591 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:13.665506Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:14.700218Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:18.020110Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:39.408745Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:29:40.105298Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "warning",
+      "message": "10 contas via http (Avisos: [WHM_SSH] Falha no SSH, tentando HTTP: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu)"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:01.594890Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "warning",
+      "message": "10 contas via http (Avisos: [WHM_SSH] Falha no SSH, tentando HTTP: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu)"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:08.159260Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:23.506687Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:23.695974Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:24.523461Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:26.110561Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:29.722471Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:35.731207Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:38.089094Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "594 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:38.134514Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:30:39.175028Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:01.785831Z",
+      "service": "server",
+      "action": "credentials",
+      "status": "success",
+      "message": "Credenciais atualizadas"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:01.836121Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:02.018448Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:02.871614Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:03.486246Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:05.363520Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:06.562091Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:09.180804Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:10.114050Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:14.098933Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:14.295576Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "594 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:14.343845Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:15.388201Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor local operacional"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:25.397719Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "warning",
+      "message": "10 contas via http (Avisos: [WHM_SSH] Falha no SSH, tentando HTTP: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu)"
+    },
+    {
+      "timestamp": "2025-11-19T13:31:56.639002Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:32:00.851389Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "warning",
+      "message": "10 contas via http (Avisos: [WHM_SSH] Falha no SSH, tentando HTTP: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu)"
+    },
+    {
+      "timestamp": "2025-11-19T13:32:02.246618Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "warning",
+      "message": "10 contas via http (Avisos: [WHM_SSH] Falha no SSH, tentando HTTP: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu\r\ncorretamente após um período de tempo ou a conexão estabelecida falhou\r\nporque o host conectado não respondeu)"
+    },
+    {
+      "timestamp": "2025-11-19T13:35:24.174647Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:35:25.193134Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:35:25.894859Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:35:35.943144Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:36:10.573176Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:40:24.192469Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:40:25.205653Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:40:25.818789Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:40:36.427236Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:41:10.408341Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via http"
+    },
+    {
+      "timestamp": "2025-11-19T13:45:24.245228Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "[Errno 11001] getaddrinfo failed"
+    },
+    {
+      "timestamp": "2025-11-19T13:45:25.259182Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:45:25.864407Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:45:35.873861Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:45:48.617542Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:45:50.301514Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:45:51.622480Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T13:45:51.633800Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:45:52.453812Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T13:46:01.840693Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:46:05.166100Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "623 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T13:46:05.489386Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "success",
+      "message": "PMG online via SSH, 1824 mensagens encontradas"
+    },
+    {
+      "timestamp": "2025-11-19T13:46:08.269871Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor remoto operacional"
+    },
+    {
+      "timestamp": "2025-11-19T13:46:10.037334Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T13:50:48.645970Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:50:50.018840Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:50:51.880534Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:50:52.165022Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T13:51:00.116285Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:52:57.065229Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:52:58.233292Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T13:52:58.490019Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:52:59.096501Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:53:08.088472Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:57:57.555355Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:57:58.697267Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T13:57:58.933732Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:57:59.561620Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T13:58:07.355314Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:02:57.643528Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:02:58.216493Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:02:59.055316Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:02:59.098532Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:03:07.874468Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:07:57.685553Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:07:58.947904Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:08:00.665640Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:08:00.847167Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:08:07.701589Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:12:57.642953Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:12:59.034704Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:13:00.073195Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:13:00.606399Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:13:07.311428Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:17:57.159695Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:17:58.510517Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:18:00.226463Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:18:01.383071Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:18:07.015997Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:18:51.023750Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T14:19:02.879069Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "679 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T14:19:03.206806Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "success",
+      "message": "PMG online via SSH, 2148 mensagens encontradas"
+    },
+    {
+      "timestamp": "2025-11-19T14:19:06.525104Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor remoto operacional"
+    },
+    {
+      "timestamp": "2025-11-19T14:19:08.495620Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:22:57.177702Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:22:58.515308Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:23:00.074056Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:23:00.644121Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:23:06.760710Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:27:57.198801Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:27:58.607061Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:27:59.936785Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:28:00.060994Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:28:06.958859Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:32:57.773219Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:32:59.102525Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:00.236962Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:00.442287Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:08.342000Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:11.713907Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:11.790059Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:12.015671Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:12.905593Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:22.015640Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:34.124604Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:34.181555Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:34.457657Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:35.321023Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:36.641940Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:47.908407Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:50.871594Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "724 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:51.217005Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "success",
+      "message": "PMG online via SSH, 2305 mensagens encontradas"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:52.676238Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor remoto operacional"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:53.255497Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:34:17.796595Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:34:17.897182Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:34:18.234877Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:34:19.014756Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:34:29.355587Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:38:11.779830Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:38:13.118567Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:38:14.175688Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:38:14.377307Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:38:23.235846Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:43:11.802472Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:43:13.179883Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:43:14.865508Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:43:15.005980Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:43:23.107956Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:48:12.748485Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:48:14.140450Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:48:14.354378Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:48:15.198467Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:48:25.141476Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:53:12.825497Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:53:14.154513Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:53:15.499297Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:53:15.959416Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:53:24.184582Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:58:12.860645Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:58:14.241468Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:58:15.508532Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T14:58:15.579110Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T14:58:24.387699Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:03:11.942300Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:03:13.255561Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:03:14.758470Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:03:14.880245Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:03:24.622800Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:08:11.974048Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:08:13.293555Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:08:14.478699Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:08:14.753829Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:08:24.264964Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:13:12.039111Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:13:13.303217Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:13:15.405113Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:13:16.100105Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:13:24.310546Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:19:08.001616Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:19:09.276048Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:19:11.221856Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:19:11.345847Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:19:20.126562Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:24:07.993206Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:24:09.055254Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:24:09.308266Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:24:09.927633Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:24:20.419584Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:28:39.903394Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:28:41.224666Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:28:42.023632Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:28:42.117450Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:28:51.764875Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:30:57.145419Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:30:58.120306Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:30:58.607368Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:30:59.003968Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:32:16.002046Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:33:35.786875Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:33:36.999904Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:33:37.205504Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:33:37.381072Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:34:55.815154Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:35:58.085587Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:35:59.483615Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:36:00.653455Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:36:00.743031Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:37:18.718836Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:40:58.100922Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:40:59.542571Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:41:00.816574Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:41:00.866218Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:42:18.094321Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:45:58.159163Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:45:59.079278Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:45:59.725736Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:45:59.966171Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:47:16.196472Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:48:50.964704Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:48:51.529045Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:48:52.406046Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:48:52.419875Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:49:25.684907Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:49:25.764031Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:49:27.074638Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T15:49:27.675730Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:50:07.102854Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T15:51:02.037694Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:29:08.946162Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:29:10.321462Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:29:13.066463Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:29:14.953082Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:30:29.888297Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:32:52.969841Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:32:54.521921Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:32:57.167538Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:32:59.124954Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:07.920029Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:09.436493Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:11.453807Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:16.048083Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:37.521399Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:43.240165Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:44.716149Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:50.269916Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "success",
+      "message": "PMG online via SSH, 3007 mensagens encontradas"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:50.381060Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor remoto operacional"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:50.674752Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor remoto operacional"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:58.433810Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:01.705180Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:10.888275Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:11.034269Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:11.272790Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:12.396985Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:13.125543Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:13.240308Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:13.528039Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:14.383656Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:20.813368Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:20.975652Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:22.135322Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:23.132836Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:28.303527Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:42.617062Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:52:28.369615Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "864 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T16:52:30.129386Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "864 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T16:52:43.060626Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "864 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T16:52:54.253765Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:52:58.211348Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:53:02.690197Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:58:03.402316Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:58:04.953581Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:58:08.195550Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:58:16.424868Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:59:40.526356Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:59:42.101682Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:59:43.514587Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T16:59:44.275324Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T16:59:59.182949Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:00.004299Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:10.320484Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:20.941015Z",
+      "service": "server",
+      "action": "test",
+      "status": "success",
+      "message": "Monitor remoto operacional"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:22.515022Z",
+      "service": "postmark",
+      "action": "test",
+      "status": "success",
+      "message": "Server: Intelimail"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:23.461460Z",
+      "service": "pmg",
+      "action": "test",
+      "status": "success",
+      "message": "PMG online via SSH, 3069 mensagens encontradas"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:24.904827Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:25.851642Z",
+      "service": "cpanel",
+      "action": "test",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:36.252342Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:36.393897Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:37.463771Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:38.348862Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T17:01:12.980651Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T17:01:33.922981Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "883 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T17:01:34.899757Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "883 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T17:01:57.917319Z",
+      "service": "mailgun",
+      "action": "test",
+      "status": "success",
+      "message": "883 mensagens nas ultimas 24h (total 46 dominios)"
+    },
+    {
+      "timestamp": "2025-11-19T17:02:10.358097Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T17:07:11.446353Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T17:07:12.925966Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T17:07:15.457900Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T17:07:18.019732Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "success",
+      "message": "10 contas via ssh-script"
+    },
+    {
+      "timestamp": "2025-11-19T17:08:32.415476Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T17:48:08.111879Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "error",
+      "message": "Token năo configurado"
+    },
+    {
+      "timestamp": "2025-11-19T17:48:08.114015Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "error",
+      "message": "API Key nao configurada"
+    },
+    {
+      "timestamp": "2025-11-19T17:48:08.117463Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "Configurar PMG_SSH_HOST e PMG_SSH_PASSWORD"
+    },
+    {
+      "timestamp": "2025-11-19T17:48:08.118573Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "error",
+      "message": "SSH nao configurado (SERVER_HOST/SERVER_PASSWORD); usando API HTTP do WHM."
+    },
+    {
+      "timestamp": "2025-11-19T17:48:09.110285Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    },
+    {
+      "timestamp": "2025-11-19T17:49:47.190182Z",
+      "service": "postmark",
+      "action": "fetch",
+      "status": "error",
+      "message": "Token năo configurado"
+    },
+    {
+      "timestamp": "2025-11-19T17:49:47.192673Z",
+      "service": "mailgun",
+      "action": "fetch",
+      "status": "error",
+      "message": "API Key nao configurada"
+    },
+    {
+      "timestamp": "2025-11-19T17:49:47.194089Z",
+      "service": "pmg",
+      "action": "fetch",
+      "status": "error",
+      "message": "Configurar PMG_SSH_HOST e PMG_SSH_PASSWORD"
+    },
+    {
+      "timestamp": "2025-11-19T17:49:47.203975Z",
+      "service": "cpanel",
+      "action": "fetch",
+      "status": "error",
+      "message": "SSH nao configurado (SERVER_HOST/SERVER_PASSWORD); usando API HTTP do WHM."
+    },
+    {
+      "timestamp": "2025-11-19T17:49:48.198141Z",
+      "service": "server",
+      "action": "fetch",
+      "status": "success",
+      "message": "OK"
+    }
+  ],
+  "history": [
+    {
+      "timestamp": "2025-11-19T14:19:06.536861Z",
+      "title": "Teste server",
+      "detail": "Monitor remoto operacional",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:19:08.506478Z",
+      "title": "Teste cpanel",
+      "detail": "10 contas via ssh-script",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:22:57.190120Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:22:58.527949Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1736",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:23:00.088259Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 22m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:23:00.656523Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:23:06.771865Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:27:57.213442Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:27:58.618762Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1749",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:27:59.950216Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:28:00.074488Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 27m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:28:06.971771Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:32:57.785401Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:32:59.114249Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1755",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:00.248996Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 32m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:00.456157Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:08.357169Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:11.726019Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1755",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:11.801208Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:12.026711Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:12.916956Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 32m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:22.026423Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:34.136635Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1755",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:34.192277Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:34.469005Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:35.334393Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 33m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:36.655246Z",
+      "title": "Teste postmark",
+      "detail": "Server: Intelimail",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:47.924952Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:50.886470Z",
+      "title": "Teste mailgun",
+      "detail": "724 mensagens nas ultimas 24h (total 46 dominios)",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:51.228734Z",
+      "title": "Teste pmg",
+      "detail": "PMG online via SSH, 2305 mensagens encontradas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:52.688136Z",
+      "title": "Teste server",
+      "detail": "Monitor remoto operacional",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:33:53.272273Z",
+      "title": "Teste cpanel",
+      "detail": "10 contas via ssh-script",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:34:17.809609Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1756",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:34:17.908644Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:34:18.245756Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:34:19.026226Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 34m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:34:29.367359Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:38:11.791227Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:38:13.129592Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1774",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:38:14.187352Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:38:14.388620Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 38m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:38:23.247063Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:43:11.816702Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:43:13.191535Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1777",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:43:14.877264Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:43:15.022123Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 43m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:43:23.120030Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:48:12.763505Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:48:14.151851Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1778",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:48:14.367121Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:48:15.211542Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 48m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:48:25.153291Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:53:12.842692Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:53:14.165979Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1786",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:53:15.511222Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:53:15.979644Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 53m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:53:24.196662Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T14:58:12.876975Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T14:58:14.253144Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1789",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T14:58:15.522457Z",
+      "title": "Servidor monitorado",
+      "detail": "8h 58m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T14:58:15.592941Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T14:58:24.401443Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:03:11.965052Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:03:13.269258Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1804",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:03:14.770667Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:03:14.897026Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 3m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:03:24.635614Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:08:11.993011Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:08:13.305958Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1824",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:08:14.491577Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 8m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:08:14.765776Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:08:24.277141Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:13:12.052607Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:13:13.316012Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1826",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:13:15.418796Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 13m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:13:16.118967Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:13:24.323247Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:19:08.013864Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:19:09.288525Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1840",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:19:11.233772Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 18m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:19:11.358863Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:19:20.138944Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:24:08.006230Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:24:09.068163Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:24:09.321089Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1848",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:24:09.942577Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 23m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:24:20.432002Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:28:39.916944Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:28:41.238531Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1851",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:28:42.037094Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:28:42.130226Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 28m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:28:51.780405Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:30:57.160484Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:30:58.135164Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:30:58.620335Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1856",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:30:59.016811Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 30m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:32:16.015940Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:33:35.808232Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:33:37.012958Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:33:37.218434Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1863",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:33:37.394712Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 33m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:34:55.831494Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:35:58.101743Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:35:59.496797Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1867",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:36:00.666813Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:36:00.760711Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 35m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:37:18.732896Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:40:58.119079Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:40:59.559615Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1871",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:41:00.830849Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:41:00.879536Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 40m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:42:18.107316Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:45:58.178477Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:45:59.093318Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:45:59.741654Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1905",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:45:59.981808Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 45m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:47:16.210500Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:48:50.979196Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:48:51.543006Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:48:52.420163Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 48m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:48:52.453832Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1914",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:49:25.699311Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1914",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T15:49:25.777770Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T15:49:27.088965Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T15:49:27.689780Z",
+      "title": "Servidor monitorado",
+      "detail": "9h 49m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T15:50:07.116751Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T15:51:02.060162Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T16:29:08.960685Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T16:29:10.335162Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1950",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:29:13.080436Z",
+      "title": "Servidor monitorado",
+      "detail": "10h 28m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T16:29:14.966429Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:30:29.902615Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T16:32:52.985391Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T16:32:54.536010Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1956",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:32:57.187793Z",
+      "title": "Servidor monitorado",
+      "detail": "10h 32m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T16:32:59.139168Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:07.935122Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:09.450319Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1970",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:11.468206Z",
+      "title": "Servidor monitorado",
+      "detail": "10h 49m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:16.062364Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:37.534787Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:43.254113Z",
+      "title": "Teste postmark",
+      "detail": "Server: Intelimail",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:44.729985Z",
+      "title": "Teste postmark",
+      "detail": "Server: Intelimail",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:50.286656Z",
+      "title": "Teste pmg",
+      "detail": "PMG online via SSH, 3007 mensagens encontradas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:50.395602Z",
+      "title": "Teste server",
+      "detail": "Monitor remoto operacional",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:50.689634Z",
+      "title": "Teste server",
+      "detail": "Monitor remoto operacional",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T16:50:58.448768Z",
+      "title": "Teste postmark",
+      "detail": "Server: Intelimail",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:01.720791Z",
+      "title": "Teste cpanel",
+      "detail": "10 contas via ssh-script",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:10.902984Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1970",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:11.061894Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:11.288679Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:12.415329Z",
+      "title": "Servidor monitorado",
+      "detail": "10h 50m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:13.152874Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1970",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:13.260507Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:13.547192Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:14.399472Z",
+      "title": "Servidor monitorado",
+      "detail": "10h 51m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:20.844210Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1970",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:20.996566Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:22.151276Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:23.148155Z",
+      "title": "Servidor monitorado",
+      "detail": "10h 51m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:28.319125Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:51:42.641726Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T16:52:28.391441Z",
+      "title": "Teste mailgun",
+      "detail": "864 mensagens nas ultimas 24h (total 46 dominios)",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T16:52:30.145220Z",
+      "title": "Teste mailgun",
+      "detail": "864 mensagens nas ultimas 24h (total 46 dominios)",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T16:52:43.082213Z",
+      "title": "Teste mailgun",
+      "detail": "864 mensagens nas ultimas 24h (total 46 dominios)",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T16:52:54.282138Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T16:52:58.226658Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T16:53:02.705783Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T16:58:03.421165Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T16:58:04.974326Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1970",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:58:08.212828Z",
+      "title": "Servidor monitorado",
+      "detail": "10h 57m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T16:58:16.441297Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:59:40.543266Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T16:59:42.119691Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1970",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T16:59:43.530339Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T16:59:44.290631Z",
+      "title": "Servidor monitorado",
+      "detail": "10h 59m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T16:59:59.197897Z",
+      "title": "Teste postmark",
+      "detail": "Server: Intelimail",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:00.019330Z",
+      "title": "Teste postmark",
+      "detail": "Server: Intelimail",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:10.336804Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:20.956466Z",
+      "title": "Teste server",
+      "detail": "Monitor remoto operacional",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:22.530974Z",
+      "title": "Teste postmark",
+      "detail": "Server: Intelimail",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:23.475893Z",
+      "title": "Teste pmg",
+      "detail": "PMG online via SSH, 3069 mensagens encontradas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:24.920103Z",
+      "title": "Teste cpanel",
+      "detail": "10 contas via ssh-script",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:25.881677Z",
+      "title": "Teste cpanel",
+      "detail": "10 contas via ssh-script",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:36.280965Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1970",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:36.449498Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:37.481608Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T17:00:38.364994Z",
+      "title": "Servidor monitorado",
+      "detail": "11h 0m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T17:01:12.999279Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T17:01:33.939112Z",
+      "title": "Teste mailgun",
+      "detail": "883 mensagens nas ultimas 24h (total 46 dominios)",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T17:01:34.915952Z",
+      "title": "Teste mailgun",
+      "detail": "883 mensagens nas ultimas 24h (total 46 dominios)",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T17:01:57.941801Z",
+      "title": "Teste mailgun",
+      "detail": "883 mensagens nas ultimas 24h (total 46 dominios)",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T17:02:10.379536Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T17:07:11.462594Z",
+      "title": "PMG sincronizado",
+      "detail": "Estatisticas atualizadas",
+      "service": "pmg"
+    },
+    {
+      "timestamp": "2025-11-19T17:07:12.940872Z",
+      "title": "Postmark sincronizado",
+      "detail": "Envios 24h: 1970",
+      "service": "postmark"
+    },
+    {
+      "timestamp": "2025-11-19T17:07:15.479523Z",
+      "title": "Servidor monitorado",
+      "detail": "11h 7m",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T17:07:18.041334Z",
+      "title": "WHM sincronizado",
+      "detail": "10 contas retornadas",
+      "service": "cpanel"
+    },
+    {
+      "timestamp": "2025-11-19T17:08:32.430353Z",
+      "title": "Mailgun sincronizado",
+      "detail": "Dominios: 46",
+      "service": "mailgun"
+    },
+    {
+      "timestamp": "2025-11-19T17:48:09.115994Z",
+      "title": "Servidor monitorado",
+      "detail": "4:02:31",
+      "service": "server"
+    },
+    {
+      "timestamp": "2025-11-19T17:49:48.203719Z",
+      "title": "Servidor monitorado",
+      "detail": "4:04:10",
+      "service": "server"
+    }
+  ]
+}

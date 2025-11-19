@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400,500,600,700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.tab-pane {
+    display: none;
+}
+.tab-pane.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+.nav-btn.active {
+    background-color: #374151; /* bg-gray-700 */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -1,0 +1,10 @@
+[0;1;32m●[0m intelimon.service - InteliMon Dashboard - Advanced Monitoring System
+   Loaded: loaded (/etc/systemd/system/intelimon.service; enabled; vendor preset: disabled)
+   Active: [0;1;32mactive (running)[0m since Tue 2025-11-18 15:03:37 -03; 15ms ago
+ Main PID: 1815027 (python3.11)
+    Tasks: 1 (limit: 126418)
+   Memory: 3.4M
+   CGroup: /system.slice/intelimon.service
+           └─1815027 /usr/bin/python3.11 /opt/intelimon-flask/app/app.py
+
+nov 18 15:03:37 mail.intelimail.com.br systemd[1]: Started InteliMon Dashboard - Advanced Monitoring System.
