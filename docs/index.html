@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MGDATA | Status Operação Carnaval</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,900;1,9..40,300&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="https://mgdata.com.br/site/wp-content/uploads/2020/11/cropped-favicon-32x32.png" sizes="32x32">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+        :root {
+            /* MGData Identity Colors */
+            --mg-green: #2E9935;
+            --mg-green-dark: #1B7A23;
+            --mg-green-light: #3DB847;
+            --mg-blue: #1073AE;
+            --mg-blue-dark: #0A5A8A;
+
+            /* Dashboard Dark Theme */
+            --bg: #0B0F1A;
+            --surface: #111827;
+            --surface-2: #1A2236;
+            --surface-3: #1E293B;
+            --border: rgba(255,255,255,0.06);
+            --border-hi: rgba(255,255,255,0.12);
+            --text: #E2E8F0;
+            --text-dim: #94A3B8;
+            --text-muted: #64748B;
+
+            /* Status Colors */
+            --emerald: #34D399;
+            --amber: #FBBF24;
+            --red: #EF4444;
+            --accent: #38BDF8;
+            --accent-glow: rgba(56,189,248,0.12);
+            --indigo: #818CF8;
+
+            /* Spacing & Radius */
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-xs: 6px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── Ambient Background Glow ── */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -30%; left: -15%;
+            width: 70vw; height: 70vw;
+            background: radial-gradient(circle, rgba(46,153,53,0.04) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -25%; right: -10%;
+            width: 55vw; height: 55vw;
+            background: radial-gradient(circle, rgba(16,115,174,0.03) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 32px);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: clamp(20px, 3vw, 32px);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            border-color: var(--border-hi);
+            box-shadow: 0 4px 40px rgba(46,153,53,0.04);
+        }
+        .card-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-title .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* ═══════════════════════════════════════════
+           HEADER — MGData Identity
+        ═══════════════════════════════════════════ */
+        .top-bar {
+            background: var(--mg-green);
+            padding: 6px 0;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 0.02em;
+        }
+        .top-bar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+        .top-bar a:hover { opacity: 0.8; }
+        .top-bar-contact {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .top-bar-contact span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .top-bar-social {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .top-bar-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            transition: background 0.2s;
+        }
+        .top-bar-social a:hover { background: rgba(255,255,255,0.3); }
+        .top-bar-social svg { width: 12px; height: 12px; fill: white; }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11,15,26,0.92);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border-bottom: 1px solid var(--border);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 40px; height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-icon svg { width: 40px; height: 40px; }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+        .logo-main {
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: white;
+        }
+        .logo-sub {
+            font-size: 0.55rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--mg-green);
+            margin-top: 2px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--emerald);
+            background: rgba(52,211,153,0.08);
+            padding: 6px 14px;
+            border-radius: 100px;
+            border: 1px solid rgba(52,211,153,0.15);
+        }
+        .live-dot {
+            width: 7px; height: 7px;
+            background: var(--emerald);
+            border-radius: 50%;
+            position: relative;
+        }
+        .live-dot::after {
+            content:'';
+            position: absolute;
+            inset: 0;
+            background: var(--emerald);
+            border-radius: 50%;
+            animation: ping 2s cubic-bezier(0,0,0.2,1) infinite;
+        }
+        @keyframes ping {
+            0% { transform: scale(1); opacity: .75; }
+            100% { transform: scale(2.8); opacity: 0; }
+        }
+        .header-date {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .header-tag {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--mg-green);
+            background: rgba(46,153,53,0.1);
+            border: 1px solid rgba(46,153,53,0.2);
+            padding: 5px 12px;
+            border-radius: 100px;
+        }
+
+        /* ═══════════════════════════════════════════
+           KPI STRIP
+        ═══════════════════════════════════════════ */
+        .kpi-strip {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin: 28px 0;
+        }
+        @media (max-width: 900px) {
+            .kpi-strip { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 560px) {
+            .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+        }
+        .kpi {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: clamp(16px, 2.5vw, 24px);
+            text-align: center;
+            transition: transform 0.25s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .kpi::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--mg-green);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .kpi:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-hi);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .kpi:hover::before { opacity: 1; }
+        .kpi-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .kpi-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+        }
+        .kpi-sub {
+            font-size: 0.62rem;
+            color: var(--text-dim);
+            margin-top: 6px;
+        }
+
+        /* ═══════════════════════════════════════════
+           DASHBOARD GRID
+        ═══════════════════════════════════════════ */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        @media (min-width: 1024px) {
+            .dashboard-grid { grid-template-columns: 5fr 3fr; }
+        }
+        .stack { display: flex; flex-direction: column; gap: 20px; }
+
+        /* ═══════════════════════════════════════════
+           TABLE
+        ═══════════════════════════════════════════ */
+        .table-wrap {
+            overflow-x: auto;
+            overflow-y: auto;
+            max-height: 520px;
+            border-radius: var(--radius-sm);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.08) transparent;
+        }
+        .table-wrap::-webkit-scrollbar { width: 5px; height: 5px; }
+        .table-wrap::-webkit-scrollbar-track { background: transparent; }
+        .table-wrap::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 4px; }
+
+        table { width: 100%; border-collapse: collapse; min-width: 520px; }
+        thead th {
+            position: sticky;
+            top: 0;
+            background: var(--surface);
+            z-index: 2;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        thead th:last-child { text-align: right; }
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s ease;
+        }
+        tbody tr:hover { background: rgba(46,153,53,0.03); }
+        tbody td {
+            padding: 11px 12px;
+            font-size: 0.78rem;
+            white-space: nowrap;
+        }
+        .job-name {
+            font-weight: 700;
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+        }
+        .job-type { color: var(--text-dim); font-style: italic; }
+        .job-date {
+            color: var(--text-dim);
+            text-align: right;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+        }
+
+        /* Status Pills */
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .pill-running { background: rgba(52,211,153,0.1); color: var(--emerald); border: 1px solid rgba(52,211,153,0.15); }
+        .pill-warning { background: rgba(251,191,36,0.1); color: var(--amber); border: 1px solid rgba(251,191,36,0.15); }
+        .pill-stopped { background: rgba(239,68,68,0.08); color: var(--red); border: 1px solid rgba(239,68,68,0.12); }
+        .pill-icon { width: 5px; height: 5px; border-radius: 50%; }
+        .pill-running .pill-icon { background: var(--emerald); }
+        .pill-warning .pill-icon { background: var(--amber); }
+        .pill-stopped .pill-icon { background: var(--red); }
+
+        /* Summary badges */
+        .summary-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+        .badge {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding: 5px 12px;
+            border-radius: 100px;
+        }
+        .badge-running { background: rgba(52,211,153,0.08); color: var(--emerald); border: 1px solid rgba(52,211,153,0.12); }
+        .badge-warning { background: rgba(251,191,36,0.08); color: var(--amber); border: 1px solid rgba(251,191,36,0.12); }
+        .badge-stopped { background: rgba(239,68,68,0.06); color: var(--red); border: 1px solid rgba(239,68,68,0.1); }
+
+        /* ═══════════════════════════════════════════
+           CHARTS
+        ═══════════════════════════════════════════ */
+        .chart-box { position: relative; width: 100%; }
+        .chart-box canvas { width: 100% !important; }
+
+        /* Metric tiles */
+        .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .metric-tile {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            text-align: center;
+        }
+        .metric-tile-label {
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+        .metric-tile-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Health Card */
+        .health-card {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+            border: 1px solid var(--border-hi);
+            border-radius: var(--radius);
+            padding: clamp(20px, 3vw, 32px);
+            position: relative;
+            overflow: hidden;
+        }
+        .health-card::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(46,153,53,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .progress-bar {
+            height: 5px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 100px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 100px;
+            transition: width 1s ease;
+        }
+
+        /* Constanta grid */
+        .constanta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 640px) {
+            .constanta-grid { grid-template-columns: 1fr; }
+        }
+        .constanta-item { text-align: center; }
+        .constanta-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+        .constanta-big {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-top: 8px;
+        }
+        .constanta-sub { font-size: 0.7rem; color: var(--text-dim); margin-top: 4px; }
+
+        /* ═══════════════════════════════════════════
+           FOOTER — MGData Identity
+        ═══════════════════════════════════════════ */
+        .mg-footer {
+            background: linear-gradient(135deg, #0D1117 0%, #111827 50%, #0D1117 100%);
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .mg-footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--mg-green), var(--mg-blue), var(--mg-green));
+        }
+        .footer-main {
+            padding: 48px 0 32px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            gap: 40px;
+        }
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+        @media (max-width: 560px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+        }
+        .footer-col-title {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--mg-green);
+            margin-bottom: 16px;
+        }
+        .footer-brand-area .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        @media (max-width: 560px) {
+            .footer-brand-area .footer-logo { justify-content: center; }
+        }
+        .footer-brand-name {
+            font-size: 1.4rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: white;
+        }
+        .footer-brand-tag {
+            font-size: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--mg-green);
+        }
+        .footer-desc {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            max-width: 300px;
+        }
+        @media (max-width: 560px) {
+            .footer-desc { max-width: 100%; }
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .footer-links a:hover { color: var(--mg-green); }
+        .footer-links a::before {
+            content: '';
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: var(--mg-green);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .footer-links a:hover::before { opacity: 1; }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+        @media (max-width: 560px) {
+            .footer-contact-item { justify-content: center; }
+        }
+        .footer-contact-icon {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            background: rgba(46,153,53,0.1);
+            border: 1px solid rgba(46,153,53,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .footer-contact-icon svg { width: 14px; height: 14px; fill: var(--mg-green); }
+        .footer-contact-item a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+        .footer-contact-item a:hover { color: var(--mg-green); }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer-copy {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+        .footer-badges {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .footer-badge {
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background: rgba(46,153,53,0.08);
+            color: var(--mg-green);
+            border: 1px solid rgba(46,153,53,0.15);
+        }
+
+        /* ═══════════════════════════════════════════
+           ANIMATIONS
+        ═══════════════════════════════════════════ */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .anim { animation: fadeUp 0.6s ease both; }
+        .anim-d1 { animation-delay: 0.05s; }
+        .anim-d2 { animation-delay: 0.1s; }
+        .anim-d3 { animation-delay: 0.15s; }
+        .anim-d4 { animation-delay: 0.2s; }
+        .anim-d5 { animation-delay: 0.25s; }
+        .anim-d6 { animation-delay: 0.3s; }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE REFINEMENTS
+        ═══════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .header-tag { display: none; }
+            .metric-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .header-inner { padding: 10px 0; }
+            .logo-main { font-size: 1.3rem; }
+            .live-badge { font-size: 0.58rem; padding: 4px 10px; }
+            .header-date { font-size: 0.62rem; }
+            .kpi { padding: 14px 10px; }
+            .kpi-value { font-size: 1.3rem; }
+            .card { padding: 16px; }
+        }
+
+        /* Print styles */
+        @media print {
+            body::before, body::after { display: none; }
+            .top-bar { display: none; }
+            header { position: relative; }
+            .card { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════ TOP BAR — MGData ═══════════════ -->
+<div class="top-bar">
+    <div class="container">
+        <div class="top-bar-inner">
+            <div class="top-bar-contact">
+                <span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    0800 300 2122 &nbsp;|&nbsp; 37 3242 2122
+                </span>
+                <a href="mailto:contato@mgdata.com.br">contato@mgdata.com.br</a>
+            </div>
+            <div class="top-bar-social">
+                <a href="https://facebook.com/mgdatatec" target="_blank" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                </a>
+                <a href="https://youtube.com/@mgdatatec" target="_blank" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#fff"/></svg>
+                </a>
+                <a href="https://instagram.com/mgdatatec" target="_blank" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="#fff" stroke-width="1.5"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#fff" stroke-width="1.5"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header>
+    <div class="container">
+        <div class="header-inner">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 48 48" fill="none">
+                        <rect x="2" y="8" width="18" height="32" rx="3" fill="#2E9935"/>
+                        <rect x="24" y="2" width="22" height="22" rx="3" fill="#1073AE"/>
+                        <rect x="24" y="28" width="22" height="18" rx="3" fill="#2E9935" opacity="0.7"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">MGDATA</span>
+                    <span class="logo-sub">Tecnologia</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <span class="header-tag">Operação Carnaval 2026</span>
+                <span class="live-badge"><span class="live-dot"></span> Operação Ativa</span>
+                <span class="header-date mono">14 / 02 / 2026</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+<main class="container" style="padding-top: 28px; padding-bottom: 48px;">
+
+    <!-- ═══════════════ KPI STRIP ═══════════════ -->
+    <section class="kpi-strip anim">
+        <div class="kpi">
+            <div class="kpi-label">Total Jobs</div>
+            <div class="kpi-value">18</div>
+            <div class="kpi-sub">Somah Platform</div>
+        </div>
+        <div class="kpi">
+            <div class="kpi-label">Running</div>
+            <div class="kpi-value" style="color: var(--emerald);">14</div>
+            <div class="kpi-sub">77.8% operacional</div>
+        </div>
+        <div class="kpi">
+            <div class="kpi-label">Warning</div>
+            <div class="kpi-value" style="color: var(--amber);">01</div>
+            <div class="kpi-sub">onedrive-egtc</div>
+        </div>
+        <div class="kpi">
+            <div class="kpi-label">Stopped</div>
+            <div class="kpi-value" style="color: var(--red);">03</div>
+            <div class="kpi-sub">Requer atenção</div>
+        </div>
+        <div class="kpi">
+            <div class="kpi-label">Estabilidade</div>
+            <div class="kpi-value" style="color: var(--mg-green);">98.2<span style="font-size:0.7em; opacity:0.6;">%</span></div>
+            <div class="kpi-sub">Uptime geral</div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ MAIN GRID ═══════════════ -->
+    <div class="dashboard-grid">
+
+        <!-- ── LEFT COLUMN ── -->
+        <div class="stack">
+
+            <!-- Jobs Table -->
+            <div class="card anim anim-d1">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
+                    <div class="card-title" style="margin-bottom:0;">
+                        <span class="dot" style="background:var(--mg-green);"></span>
+                        Consola de Jobs — Somah
+                    </div>
+                    <div class="summary-badges">
+                        <span class="badge badge-running">14 RUNNING</span>
+                        <span class="badge badge-warning">1 WARNING</span>
+                        <span class="badge badge-stopped">3 STOPPED</span>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Job Name</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th style="text-align:right;">Last Backup</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="job-name">backup-onedrive-egtc</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-warning"><span class="pill-icon"></span>Warning</span></td>
+                                <td class="job-date">14/02/2026 19:28</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">Backup-Exchange-Vital</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">14/02/2026 17:33</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">backup-teams-queiroz</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">14/02/2026 06:48</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">backup-exchange-vital</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">14/02/2026 04:06</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">Backup-Teams-Egtc</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">13/02/2026 21:54</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">backup-exchange-egtc</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">13/02/2026 02:40</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">Backup-Exchange-Egtc</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">12/02/2026 13:40</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">Backup-Ondrive-Vital</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">11/02/2026 18:39</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">Backup-Sharepoint-Vital</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">11/02/2026 03:13</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">backup-exchange-alya</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">01/02/2026 15:24</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">backup-onedrive-vital</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">07/12/2025 11:29</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">backup-onedrive-alya</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">02/12/2025 02:21</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">ALYA-SHAREPOINT-LEGADO</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">29/11/2025 18:34</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">ALYA-SHAREPOINT-1Y</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-stopped"><span class="pill-icon"></span>Stopped</span></td>
+                                <td class="job-date">—</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">Backup-Ondrive-Egtc</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">—</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">Backup-Sharepoint-Egtc</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-running"><span class="pill-icon"></span>Running</span></td>
+                                <td class="job-date">—</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">backup-geral-egtc-sharepoint</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-stopped"><span class="pill-icon"></span>Stopped</span></td>
+                                <td class="job-date">—</td>
+                            </tr>
+                            <tr>
+                                <td class="job-name">backup-geral-vital-sharepoint</td>
+                                <td class="job-type">Backup</td>
+                                <td><span class="pill pill-stopped"><span class="pill-icon"></span>Stopped</span></td>
+                                <td class="job-date">—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Constanta Infrastructure -->
+            <div class="card anim anim-d3">
+                <div class="card-title">
+                    <span class="dot" style="background:var(--indigo);"></span>
+                    Infraestrutura Constanta
+                </div>
+                <div class="constanta-grid">
+                    <div class="constanta-item">
+                        <div class="constanta-label">S3 Bucket Sync</div>
+                        <div class="chart-box" style="height:160px;max-width:280px;margin:0 auto;">
+                            <canvas id="chartS3"></canvas>
+                        </div>
+                        <div class="constanta-big">74<span style="font-size:0.5em;opacity:0.5;">%</span></div>
+                        <div class="constanta-sub">Sincronização ativa</div>
+                    </div>
+                    <div class="constanta-item">
+                        <div class="constanta-label">Internal Throughput</div>
+                        <div class="chart-box" style="height:160px;max-width:280px;margin:0 auto;">
+                            <canvas id="chartThroughput"></canvas>
+                        </div>
+                        <div class="constanta-big" style="font-size:1.3rem;">~37.5 <span style="font-size:0.6em;opacity:0.5;">MB/s</span></div>
+                        <div class="constanta-sub">Repo 04 / Repo 06</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── RIGHT COLUMN ── -->
+        <div class="stack">
+
+            <!-- Senac -->
+            <div class="card anim anim-d2">
+                <div class="card-title">
+                    <span class="dot" style="background:var(--indigo);"></span>
+                    Status Senac
+                </div>
+                <div class="chart-box" style="height:200px;">
+                    <canvas id="chartSenac"></canvas>
+                </div>
+                <div class="metric-grid" style="margin-top:16px;">
+                    <div class="metric-tile">
+                        <div class="metric-tile-label">IntelStor</div>
+                        <div class="metric-tile-value" style="color:var(--emerald);">75</div>
+                    </div>
+                    <div class="metric-tile">
+                        <div class="metric-tile-label">Zadara</div>
+                        <div class="metric-tile-value" style="color:var(--amber);">02</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Radar -->
+            <div class="health-card anim anim-d4">
+                <div class="card-title" style="color:var(--text-dim);">
+                    <span class="dot" style="background:var(--mg-green);"></span>
+                    Análise de Saúde
+                </div>
+                <div class="chart-box" style="height:220px;">
+                    <canvas id="chartHealth"></canvas>
+                </div>
+                <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--border);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span style="font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-dim);">Estabilidade Geral</span>
+                        <span class="mono" style="font-weight:700; color:var(--emerald);">98.2%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width:98.2%; background: linear-gradient(90deg, var(--mg-green), var(--accent));"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Distribution Mini -->
+            <div class="card anim anim-d5">
+                <div class="card-title">
+                    <span class="dot" style="background:var(--emerald);"></span>
+                    Distribuição por Organização
+                </div>
+                <div class="chart-box" style="height:180px;">
+                    <canvas id="chartOrgs"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- ═══════════════ FOOTER — MGData ═══════════════ -->
+<footer class="mg-footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand-area">
+                    <div class="footer-logo">
+                        <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+                            <rect x="2" y="8" width="18" height="32" rx="3" fill="#2E9935"/>
+                            <rect x="24" y="2" width="22" height="22" rx="3" fill="#1073AE"/>
+                            <rect x="24" y="28" width="22" height="18" rx="3" fill="#2E9935" opacity="0.7"/>
+                        </svg>
+                        <div>
+                            <div class="footer-brand-name">MGDATA</div>
+                            <div class="footer-brand-tag">Tecnologia</div>
+                        </div>
+                    </div>
+                    <p class="footer-desc">Transformação inteligente com soluções eficientes. Segurança e TI a favor da eficiência do seu negócio.</p>
+                </div>
+
+                <!-- Sobre -->
+                <div>
+                    <div class="footer-col-title">Sobre a MGData</div>
+                    <ul class="footer-links">
+                        <li><a href="https://mgdata.com.br/site/quem-somos/">A Empresa</a></li>
+                        <li><a href="https://mgdata.com.br/site/politica-de-privacidade/">Privacidade</a></li>
+                        <li><a href="https://mgdata.com.br/site/canal-de-denuncias/">Canal de Denúncias</a></li>
+                    </ul>
+                </div>
+
+                <!-- Soluções -->
+                <div>
+                    <div class="footer-col-title">Soluções</div>
+                    <ul class="footer-links">
+                        <li><a href="https://mgdata.com.br/site/solucoes/">Soluções</a></li>
+                        <li><a href="https://mgdata.com.br/site/solucoes-de-backup/">Soluções de Backup</a></li>
+                        <li><a href="https://mgdata.com.br/site/suporte/">Suporte</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div>
+                    <div class="footer-col-title">Fale Conosco</div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-weight:700; color:white; font-size:0.82rem;">0800 300 2122</div>
+                            <div style="font-size:0.7rem;">37 3242 2122</div>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none" stroke="#2E9935" stroke-width="1.5"/></svg>
+                        </div>
+                        <a href="mailto:contato@mgdata.com.br">contato@mgdata.com.br</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="#2E9935" stroke-width="1.5"/></svg>
+                        </div>
+                        <div style="font-size:0.72rem;">Divinópolis — MG</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">
+                &copy; 2026 MGData Tecnologia. Todos os direitos reservados. &nbsp;|&nbsp; Dashboard Restrito — Acesso Administrativo
+            </div>
+            <div class="footer-badges">
+                <span class="footer-badge">Veeam Partner</span>
+                <span class="footer-badge">Microsoft Gold</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ═══════════════ CHARTS ═══════════════ -->
+<script>
+    // ── Chart Defaults ──
+    Chart.defaults.font.family = "'DM Sans', system-ui, sans-serif";
+    Chart.defaults.color = '#64748B';
+
+    const tip = {
+        backgroundColor: '#0F172A',
+        padding: 12,
+        cornerRadius: 8,
+        borderColor: 'rgba(255,255,255,0.08)',
+        borderWidth: 1,
+        titleFont: { size: 11, weight: '700', family: "'DM Sans'" },
+        bodyFont: { size: 11, family: "'JetBrains Mono'" },
+    };
+
+    // 1. S3 Gauge
+    new Chart(document.getElementById('chartS3'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Sincronizado', 'Fila'],
+            datasets: [{ data: [74, 26], backgroundColor: ['#2E9935', 'rgba(255,255,255,0.04)'], borderWidth: 0 }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            rotation: -90, circumference: 180, cutout: '82%',
+            plugins: { legend: { display: false }, tooltip: tip }
+        }
+    });
+
+    // 2. Throughput Bars
+    new Chart(document.getElementById('chartThroughput'), {
+        type: 'bar',
+        data: {
+            labels: ['Repo 04', 'Repo 06'],
+            datasets: [{ data: [40, 37.5], backgroundColor: ['#818CF8', '#6366F1'], borderRadius: 6, barThickness: 36 }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: {
+                y: { display: false },
+                x: { grid: { display: false }, ticks: { font: { size: 10, weight: '600' } } }
+            },
+            plugins: { legend: { display: false }, tooltip: tip }
+        }
+    });
+
+    // 3. Senac
+    new Chart(document.getElementById('chartSenac'), {
+        type: 'bar',
+        data: {
+            labels: ['IntelStor Node', 'Zadara Cluster'],
+            datasets: [{
+                data: [75, 2],
+                backgroundColor: ['rgba(52,211,153,0.7)', 'rgba(251,191,36,0.7)'],
+                borderColor: ['#34D399', '#FBBF24'],
+                borderWidth: 1,
+                borderRadius: 6,
+                barPercentage: 0.55,
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true, maintainAspectRatio: false,
+            scales: {
+                x: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { font: { size: 10 } } },
+                y: { grid: { display: false }, ticks: { font: { size: 10, weight: '600' } } }
+            },
+            plugins: { legend: { display: false }, tooltip: tip }
+        }
+    });
+
+    // 4. Health Radar
+    new Chart(document.getElementById('chartHealth'), {
+        type: 'radar',
+        data: {
+            labels: ['Integridade', 'Velocidade', 'Rede', 'Storage', 'Uptime'],
+            datasets: [{
+                data: [10, 8.5, 9, 9, 10],
+                backgroundColor: 'rgba(46,153,53,0.12)',
+                borderColor: '#2E9935',
+                borderWidth: 1.5,
+                pointRadius: 3,
+                pointBackgroundColor: '#2E9935',
+                pointBorderColor: '#0B0F1A',
+                pointBorderWidth: 2,
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: {
+                r: {
+                    angleLines: { color: 'rgba(255,255,255,0.04)' },
+                    grid: { color: 'rgba(255,255,255,0.04)' },
+                    pointLabels: { color: '#94A3B8', font: { size: 10, weight: '600' } },
+                    ticks: { display: false },
+                    suggestedMin: 0, suggestedMax: 10,
+                }
+            },
+            plugins: { legend: { display: false }, tooltip: tip }
+        }
+    });
+
+    // 5. Org Distribution Donut
+    new Chart(document.getElementById('chartOrgs'), {
+        type: 'doughnut',
+        data: {
+            labels: ['EGTC', 'Vital', 'Alya', 'Queiroz'],
+            datasets: [{
+                data: [7, 5, 4, 1],
+                backgroundColor: ['#2E9935', '#1073AE', '#34D399', '#FBBF24'],
+                borderColor: '#111827',
+                borderWidth: 3,
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            cutout: '65%',
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#94A3B8',
+                        font: { size: 10, weight: '600' },
+                        padding: 12,
+                        usePointStyle: true,
+                        pointStyleWidth: 8,
+                    }
+                },
+                tooltip: tip,
+            }
+        }
+    });
+</script>
+</body>
+</html>
